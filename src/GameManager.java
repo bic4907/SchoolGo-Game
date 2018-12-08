@@ -26,19 +26,19 @@ public class GameManager {
 	
 	public enum ResultType {
 		Perfect, OK, Inmun, Jayon, Gonggwa, Yeche, Fail, Pasan
-		// Perfect : 3°³ ÀÌ»óÀÇ ´Ü°ú´ëÇĞÀÌ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// OK	   : 2°³ ÀÌ»óÀÇ ´Ü°ú´ëÇĞÀÌ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Imnum   : ÀÎ¹®´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Jayon   : ÀÚ¿¬´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Gonggwa : °ø°ú´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Yeche   : ¿¹Ã¼´É¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Fail    : ±âÁØÄ¡¸¦ ³ÑÀº ´ëÇĞÀÌ 0°³ÀÏ °æ¿ì
-	    // Pasan   : ÀçÁ¤ÀÌ ºÎÁ·ÇÏ¿© °ÔÀÓÀÌ °­Á¦Á¾·á µÇ¾úÀ» ¶§
+		// Perfect : 3ê°œ ì´ìƒì˜ ë‹¨ê³¼ëŒ€í•™ì´ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// OK	   : 2ê°œ ì´ìƒì˜ ë‹¨ê³¼ëŒ€í•™ì´ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Imnum   : ì¸ë¬¸ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Jayon   : ìì—°ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Gonggwa : ê³µê³¼ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Yeche   : ì˜ˆì²´ëŠ¥ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Fail    : ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì€ ëŒ€í•™ì´ 0ê°œì¼ ê²½ìš°
+	    // Pasan   : ì¬ì •ì´ ë¶€ì¡±í•˜ì—¬ ê²Œì„ì´ ê°•ì œì¢…ë£Œ ë˜ì—ˆì„ ë•Œ
 	}
 	
 	
 	public GameManager() {
-		// 2¿ù 1ÀÏºÎÅÍ °ÔÀÓ½ÃÀÛ
+		// 2ì›” 1ì¼ë¶€í„° ê²Œì„ì‹œì‘
 		nMonth = 2;
 		nDay = 0;
 		nMoney = 1000;
@@ -52,57 +52,57 @@ public class GameManager {
 		for(int i=0;i<7;i++)
 			randomList[i] = -1;
 		
-		/* ºôµù Ãß°¡ÇÏ´Â °÷*/
+		/* ë¹Œë”© ì¶”ê°€í•˜ëŠ” ê³³*/
 		{
-			Building b = new Building("À²°î°ü", 300000, 80, new Point(125, 75), "res/building/g1.png");
+			Building b = new Building("ìœ¨ê³¡ê´€", 300000, 80, new Point(125, 75), "res/building/g1.png");
 			Effect e = new Effect(0, 1.0, 0, 0, 0, 0, 0.2, 0, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("ÀÌ³ëº£ÀÌ¼Ç¼¾ÅÍ", 1000000, 150, new Point(225, 50), "res/building/g2.png");
+			Building b = new Building("ì´ë…¸ë² ì´ì…˜ì„¼í„°", 1000000, 150, new Point(225, 50), "res/building/g2.png");
 			Effect e = new Effect(0, 0, 1.6, 0, 0, 0, 0.8, 0, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("¿µ½Ç°ü", 300000, 50, new Point(475, 50), "res/building/j1.png");
+			Building b = new Building("ì˜ì‹¤ê´€", 300000, 50, new Point(475, 50), "res/building/j1.png");
 			Effect e = new Effect(0, 1.0, 1.0, 0, 0, 0.3, 0.3, 0, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("Ãæ¹«°ü", 300000, 50, new Point(600, 45), "res/building/j2.png");
+			Building b = new Building("ì¶©ë¬´ê´€", 300000, 50, new Point(600, 45), "res/building/j2.png");
 			Effect e = new Effect(0, 1.0, 1.0, 0, 0, 0.3, 0.3, 0, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("±¤°³Åä°ü", 800000, 120, new Point(100, 260), "res/building/i1.png");
+			Building b = new Building("ê´‘ê°œí† ê´€", 800000, 120, new Point(100, 260), "res/building/i1.png");
 			Effect e = new Effect(0.8, 0.8, 0.8, 0.8, 0.3, 0.1, 0.1, 0.1, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("ÁıÇö°ü", 300000, 50, new Point(140, 180), "res/building/i2.png");
+			Building b = new Building("ì§‘í˜„ê´€", 300000, 50, new Point(140, 180), "res/building/i2.png");
 			Effect e = new Effect(0.8, 0, 0, 0, 0.8, 0, 0, 0, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("¿ë´ö°ü", 350000, 50, new Point(540, 180), "res/building/y1.png");
+			Building b = new Building("ìš©ë•ê´€", 350000, 50, new Point(540, 180), "res/building/y1.png");
 			Effect e = new Effect(0, 0, 0, 0.8, 0, 0, 0, 0.3, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("Áø°üÈ¦", 300000, 50, new Point(600, 280), "res/building/y2.png");
+			Building b = new Building("ì§„ê´€í™€", 300000, 50, new Point(600, 280), "res/building/y2.png");
 			Effect e = new Effect(0, 0, 0, 0, 0.4, 0.5, 0.5, 0.4, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("±â¼÷»ç", 200000, 50, new Point(350, 50), "res/building/p2.png");
+			Building b = new Building("ê¸°ìˆ™ì‚¬", 200000, 50, new Point(350, 50), "res/building/p2.png");
 			Effect e = new Effect(0, 0, 0, 0, 0.2, 0.2, 0.2, 0.2, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
@@ -114,31 +114,31 @@ public class GameManager {
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("Ã¼À°°ü", 200000, 10, new Point(280, 160), "res/building/p3.png");
+			Building b = new Building("ì²´ìœ¡ê´€", 200000, 10, new Point(280, 160), "res/building/p3.png");
 			Effect e = new Effect(0, 0, 0, 0.5, 0, 0, 0, 0.5, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
 		{
-			Building b = new Building("ºñ¿ø", 100000, 10, new Point(380, 210), "res/building/p1.png");
+			Building b = new Building("ë¹„ì›", 100000, 10, new Point(380, 210), "res/building/p1.png");
 			Effect e = new Effect(-0.8, -0.8, -0.8, -0.8, 1, 1, 1, 1, "", "");
 			b.addEffect(e);
 			buildingList.add(b);
 		}
-		/* ºôµù Ãß°¡ ÇÏ´Â °÷ ³¡ */
+		/* ë¹Œë”© ì¶”ê°€ í•˜ëŠ” ê³³ ë */
 
 		nBuilding = new Vector<Building>();
-		nBuilding.add(new Building("ÄÁÅ×ÀÌ³Ê", 1, 50, new Point(188, 330), "res/building/container.png"));
+		nBuilding.add(new Building("ì»¨í…Œì´ë„ˆ", 1, 50, new Point(188, 330), "res/building/container.png"));
 		
 		nStudent = new Vector<Student>();
 		nProfessor = new Vector<Professor>();
 		nProfessor.add(new Professor("Natural"));
 		
 		this.CollegeType = new Vector<String>();
-		this.CollegeType.add("ÀÎ¹®´ë");
-		this.CollegeType.add("ÀÚ¿¬´ë");
-		this.CollegeType.add("°ø°ú´ë");
-		this.CollegeType.add("¿¹Ã¼´É´ë");
+		this.CollegeType.add("ì¸ë¬¸ëŒ€");
+		this.CollegeType.add("ìì—°ëŒ€");
+		this.CollegeType.add("ê³µê³¼ëŒ€");
+		this.CollegeType.add("ì˜ˆì²´ëŠ¥ëŒ€");
 		
 
 	} 
@@ -154,8 +154,8 @@ public class GameManager {
 		if(this.nDay > 30) {
 			this.nDay = 1;
 			this.nMonth++;
-			this.isOccur = false; //ÀÌ¹ø ´Ş¿¡´Â ¾ÆÁ÷ ·£´ı ÀÌº¥Æ® ¹ß»ıÇÏÁö ¾Ê¾ÒÀ½
-			this.nRandomDay = (int)(Math.random() * 19) + 5; //´ŞÀÌ ¹Ù²î¸é ·£´ı ÀÌº¥Æ® ¹ß»ı ³¯Â¥¸¦ ´Ù½Ã ¼³Á¤
+			this.isOccur = false; //ì´ë²ˆ ë‹¬ì—ëŠ” ì•„ì§ ëœë¤ ì´ë²¤íŠ¸ ë°œìƒí•˜ì§€ ì•Šì•˜ìŒ
+			this.nRandomDay = (int)(Math.random() * 19) + 5; //ë‹¬ì´ ë°”ë€Œë©´ ëœë¤ ì´ë²¤íŠ¸ ë°œìƒ ë‚ ì§œë¥¼ ë‹¤ì‹œ ì„¤ì •
 		}
 		nextStep();
 	}
@@ -163,7 +163,7 @@ public class GameManager {
 	public void nextStep() {
 		int money = 0;
 		
-		/* µ· °ü·Ã */
+		/* ëˆ ê´€ë ¨ */
 		int num = this.nStudent.size();
 		money += num * 300;
 		num = this.nProfessor.size();
@@ -173,13 +173,13 @@ public class GameManager {
 		this.lastIncome = money;
 		this.nMoney += money;
 		
-		/* Çàº¹µµ °ü·Ã */
+		/* í–‰ë³µë„ ê´€ë ¨ */
 		for(Student s : this.nStudent) {
 			if(s.getHappyness() == 0) continue;
 			s.setHappyness(s.getHappyness() - 0.1);
 			if(s.getHappyness() < 0) s.setHappyness(0);
 		}
-		/* Áö½Ä °ü·Ã */
+		/* ì§€ì‹ ê´€ë ¨ */
 		
 		HashMap<String, Integer> cntProfessor = new HashMap<String, Integer>();
 		for(String type : this.CollegeType) {
@@ -200,7 +200,7 @@ public class GameManager {
 		
 		
 		Effect totalEffect = new Effect();
-		/* °Ç¹° È¿°ú °ü·Ã */
+		/* ê±´ë¬¼ íš¨ê³¼ ê´€ë ¨ */
 		for(Building b : this.nBuilding) {
 			
 			Vector<Effect> b_e = b.getEffects();
@@ -251,7 +251,7 @@ public class GameManager {
 	}
 
 	public boolean buyBuilding(String name) {
-		// TODO µ·Ã¼Å© ÈÄ °Ç¹°±¸ÀÔ
+		// TODO ëˆì²´í¬ í›„ ê±´ë¬¼êµ¬ì…
 		
 		
 		for(Building b : buildingList) {
@@ -282,7 +282,7 @@ public class GameManager {
 			int capacity = this.getAllCapacity();
 			int margin = 0;
 			
-			if(allCount + num > capacity) { // ÇĞ»ıÀÌ ³ÑÃÄ¼­ µ¹¾Æ°¡¾ß ÇÏ´Â °æ¿ì
+			if(allCount + num > capacity) { // í•™ìƒì´ ë„˜ì³ì„œ ëŒì•„ê°€ì•¼ í•˜ëŠ” ê²½ìš°
 				margin = allCount + num - capacity;
 				num = capacity - allCount;
 			}
@@ -292,19 +292,19 @@ public class GameManager {
 			}
 			
 			if(num == 0){
-				SceneManager.getInstance().addAlert(new AlertDialog("Á¤¿øÀÌ ²ËÃ¡½À´Ï´Ù"));
-			} // Á¤¿øÀÌ ²Ë Ã¡À» ¶§
+				SceneManager.getInstance().addAlert(new AlertDialog("ì •ì›ì´ ê½‰ì°¼ìŠµë‹ˆë‹¤"));
+			} // ì •ì›ì´ ê½‰ ì°¼ì„ ë•Œ
 			else if(margin > 0) {
-				SceneManager.getInstance().addAlert(new AlertDialog(text + " " + Integer.toString(num) + "¸íÀ» »Ì¾Ò½À´Ï´Ù"));
-				SceneManager.getInstance().addAlert(new AlertDialog(Integer.toString(margin) + "¸íÀÌ ÀÚ¸®°¡ ¾ø¾î¼­ µ¹¾Æ°¨"));
-			} // Á¤¿øÀÌ ³²¾ÒÁö¸¸ ´õ ¸¹ÀÌ ¸ğ¾ÒÀ» ¶§
+				SceneManager.getInstance().addAlert(new AlertDialog(text + " " + Integer.toString(num) + "ëª…ì„ ë½‘ì•˜ìŠµë‹ˆë‹¤"));
+				SceneManager.getInstance().addAlert(new AlertDialog(Integer.toString(margin) + "ëª…ì´ ìë¦¬ê°€ ì—†ì–´ì„œ ëŒì•„ê°"));
+			} // ì •ì›ì´ ë‚¨ì•˜ì§€ë§Œ ë” ë§ì´ ëª¨ì•˜ì„ ë•Œ
 			else
 			{
-				SceneManager.getInstance().addAlert(new AlertDialog(text + " " + Integer.toString(num) + "¸íÀ» »Ì¾Ò½À´Ï´Ù"));
-				//ÈŞ¸Õ¸®½ºÆ® Ãß°¡
-			} // Á¤»óÀûÀ¸·Î ¸ğÁıÇßÀ» ¶§
+				SceneManager.getInstance().addAlert(new AlertDialog(text + " " + Integer.toString(num) + "ëª…ì„ ë½‘ì•˜ìŠµë‹ˆë‹¤"));
+				//íœ´ë¨¼ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
+			} // ì •ìƒì ìœ¼ë¡œ ëª¨ì§‘í–ˆì„ ë•Œ
 			
-			if( ((allCount+num) / 30) > nHumanCount ) // 30¸í¸¶´Ù »ç¶÷ 1¸í Ãß°¡
+			if( ((allCount+num) / 30) > nHumanCount ) // 30ëª…ë§ˆë‹¤ ì‚¬ëŒ 1ëª… ì¶”ê°€
 			{
 				HumanWalking hw = new HumanWalking(nHumanCount);
 				humanList.add(hw);
@@ -320,7 +320,7 @@ public class GameManager {
 				this.nProfessor.add(new Professor(text));
 			}
 			
-			SceneManager.getInstance().addAlert(new AlertDialog(text + " ±³¼ö " + Integer.toString(num) + "¸íÀ» »Ì¾Ò½À´Ï´Ù"));
+			SceneManager.getInstance().addAlert(new AlertDialog(text + " êµìˆ˜ " + Integer.toString(num) + "ëª…ì„ ë½‘ì•˜ìŠµë‹ˆë‹¤"));
 
 		}
 	}
@@ -365,21 +365,21 @@ public class GameManager {
 	}
 	
 	public Result getResult() {
-		// Perfect : 3°³ ÀÌ»óÀÇ ´Ü°ú´ëÇĞÀÌ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// OK	   : 2°³ ÀÌ»óÀÇ ´Ü°ú´ëÇĞÀÌ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Imnum   : ÀÎ¹®´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Jayon   : ÀÚ¿¬´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Gonggwa : °ø°ú´ë¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Yeche   : ¿¹Ã¼´É¸¸ ±âÁØÄ¡¸¦ ³Ñ¾úÀ» °æ¿ì
-		// Fail    : ±âÁØÄ¡¸¦ ³ÑÀº ´ëÇĞÀÌ 0°³ÀÏ °æ¿ì
-	    // Pasan   : ÀçÁ¤ÀÌ ºÎÁ·ÇÏ¿© °ÔÀÓÀÌ °­Á¦Á¾·á µÇ¾úÀ» ¶§
+		// Perfect : 3ê°œ ì´ìƒì˜ ë‹¨ê³¼ëŒ€í•™ì´ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// OK	   : 2ê°œ ì´ìƒì˜ ë‹¨ê³¼ëŒ€í•™ì´ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Imnum   : ì¸ë¬¸ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Jayon   : ìì—°ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Gonggwa : ê³µê³¼ëŒ€ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Yeche   : ì˜ˆì²´ëŠ¥ë§Œ ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì—ˆì„ ê²½ìš°
+		// Fail    : ê¸°ì¤€ì¹˜ë¥¼ ë„˜ì€ ëŒ€í•™ì´ 0ê°œì¼ ê²½ìš°
+	    // Pasan   : ì¬ì •ì´ ë¶€ì¡±í•˜ì—¬ ê²Œì„ì´ ê°•ì œì¢…ë£Œ ë˜ì—ˆì„ ë•Œ
 		HashMap<String, Double> avg_knowledge, avg_happyness;
 		HashMap<String, Boolean> passed = new HashMap<String, Boolean>();
 		HashMap<String, Integer> cnt_student = new HashMap<String, Integer>();
 		avg_knowledge = new HashMap<String, Double>();
 		avg_happyness = new HashMap<String, Double>();
 		
-		// 1. º¯¼ö ÃÊ±âÈ­
+		// 1. ë³€ìˆ˜ ì´ˆê¸°í™”
 		for(String s : this.CollegeType) {
 			avg_knowledge.put(s, (double)0);
 			avg_happyness.put(s, (double)0);
@@ -387,14 +387,14 @@ public class GameManager {
 			cnt_student.put(s, 1);
 		}
 		
-		// 2. ÀüÃ¼ ÇÕ ±¸ÇÏ±â
+		// 2. ì „ì²´ í•© êµ¬í•˜ê¸°
 		for(Student s : nStudent) {
 			avg_knowledge.put(s.getCollege(), avg_knowledge.get(s.getCollege()) + s.getKnowledge());
 			avg_happyness.put(s.getCollege(), avg_happyness.get(s.getCollege()) + s.getHappyness());
 			cnt_student.put(s.getCollege(), cnt_student.get(s.getCollege()) + 1);
 		}
 		
-		// 3. Æò±Õ ±¸ÇÏ±â
+		// 3. í‰ê·  êµ¬í•˜ê¸°
 		int cnt_pass = 0;
 		for(String s : this.CollegeType) {
 
@@ -407,7 +407,7 @@ public class GameManager {
 			}
 		}
 		
-		// 4. °á°ú ³ª´©±â
+		// 4. ê²°ê³¼ ë‚˜ëˆ„ê¸°
 		
 		Result result = new Result();
 		
@@ -416,17 +416,17 @@ public class GameManager {
 				// Perfect
 				result.type = ResultType.Perfect;
 			} else if(cnt_pass == 2) {
-				// ±×³É ÀßÇßÀ» °æ¿ì
+				// ê·¸ëƒ¥ ì˜í–ˆì„ ê²½ìš°
 				result.type = ResultType.OK;
 			} else if(cnt_pass == 1) {
-				// ÇÑ°¡Áö¸¸ ÀßÇŞÀ» °æ¿ì
-				if(passed.get("ÀÎ¹®´ë") == true) {
+				// í•œê°€ì§€ë§Œ ì˜í–‡ì„ ê²½ìš°
+				if(passed.get("ì¸ë¬¸ëŒ€") == true) {
 					result.type = ResultType.Inmun;
-				} else if(passed.get("ÀÚ¿¬´ë") == true) {
+				} else if(passed.get("ìì—°ëŒ€") == true) {
 					result.type = ResultType.Jayon;
-				} else if(passed.get("°ø°ú´ë") == true) {
+				} else if(passed.get("ê³µê³¼ëŒ€") == true) {
 					result.type = ResultType.Gonggwa;
-				} else if(passed.get("¿¹Ã¼´É´ë") == true) {
+				} else if(passed.get("ì˜ˆì²´ëŠ¥ëŒ€") == true) {
 					result.type = ResultType.Yeche;
 				}
 	
@@ -435,25 +435,25 @@ public class GameManager {
 				result.type = ResultType.Fail;
 			}
 			
-			// »ó¼¼°á°ú Ãß°¡
+			// ìƒì„¸ê²°ê³¼ ì¶”ê°€
 			
 			for(String s : this.CollegeType) {
 				String college_desc = "";
 				
 				college_desc = s;
 				
-				college_desc += "  Áö½Ä¼öÁØ ";
-				if(avg_knowledge.get(s) >= 0) {
-					college_desc += "³ôÀ½ ";
+				college_desc += "  ì§€ì‹ìˆ˜ì¤€ ";
+				if(avg_knowledge.get(s) >= 50) {
+					college_desc += "ë†’ìŒ ";
 				} else {
-					college_desc += "³·À½ ";
+					college_desc += "ë‚®ìŒ ";
 				}
 				
-				college_desc += "Çàº¹µµ ";
-				if(avg_happyness.get(s) >= 0) {
-					college_desc += "³ôÀ½ ";
+				college_desc += "í–‰ë³µë„ ";
+				if(avg_happyness.get(s) >= 70) {
+					college_desc += "ë†’ìŒ ";
 				} else {
-					college_desc += "³·À½ ";
+					college_desc += "ë‚®ìŒ ";
 				}
 								
 				result.desc.add(college_desc);
