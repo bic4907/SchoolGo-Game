@@ -36,9 +36,9 @@ public class BuildScene extends JPanel {
 		this.setPreferredSize(new Dimension(800,500));
 		this.setLayout(null);
 		
-		GameManager gm = SceneManager.getInstance().getGameManager();
+		GameManager gm = SceneManager.getInstance().getGameManager(); //GameMagerë¥¼ ê°€ì ¸ì˜´
 		
-		/* °Ç¹° ½ºÅ©·Ñ */
+		/* ê±´ë¬¼ ìŠ¤í¬ë¡¤ */
 		orderPanel = new JPanel();
 		orderPanel.setBounds(0, 0, 800, 800);
 		orderPanel.setLayout(null);
@@ -47,10 +47,10 @@ public class BuildScene extends JPanel {
 		wheel = new WheelListener();
 		this.addMouseWheelListener(wheel);
 		
-		/* °Ç¹° ½ºÅ©·Ñ ³¡ */
+		/* ê±´ë¬¼ ìŠ¤í¬ë¡¤ ë */
 		
-		Back = new ImageIcon("res/start/bg.jpg"); //¹è°æ ÀÌ¹ÌÁö
-		btnL = new buildingListener(); //¹öÆ°¸®½º³Ê
+		Back = new ImageIcon("res/start/bg.jpg"); //ë°°ê²½ ì´ë¯¸ì§€
+		btnL = new buildingListener(); //ë²„íŠ¼ë¦¬ìŠ¤ë„ˆ
 		
 		int idx = 0;
 		for(Building b : gm.getBuildingList()) {
@@ -60,19 +60,19 @@ public class BuildScene extends JPanel {
 				if(b.getName() == bb.getName()) {
 					is_display = false;
 					break;
-				}
+				} //ì´ë¯¸ ê±´ì„¤í•œ ë¹Œë”©ë“¤ì€ falseë¡œ ë°”ê¾¼ë‹¤
 			}
 			if(!is_display) continue;
-			//¾ÆÁ÷ °Ç¼³ÇÏÁö ¾ÊÀº °Ç¹°µéÀ» º¸¿©ÁØ´Ù
+			//ì•„ì§ ê±´ì„¤í•˜ì§€ ì•Šì€ ê±´ë¬¼ë“¤ì„ ë³´ì—¬ì¤€ë‹¤
 			
 			JPanel panel = getBuildingPanel(b);
 			
 			
 			int x, y;
 			if(idx % 2 == 0) {
-				x = 50; // ¿ŞÂÊ¿¡ ºÙÀ» °æ¿ì
+				x = 50; // ì™¼ìª½ì— ë¶™ì„ ê²½ìš°
 			} else {
-				x = 400; // ¿À¸¥ÂÊ¿¡ ºÙÀÏ °æ¿ì
+				x = 400; // ì˜¤ë¥¸ìª½ì— ë¶™ì¼ ê²½ìš°
 			}
 			
 			y = (panel.getPreferredSize().height + 10) * ((int)(idx / 2)) + 50;
@@ -89,12 +89,13 @@ public class BuildScene extends JPanel {
 					boolean ret = SceneManager.getInstance().getGameManager().buyBuilding(panel.getName());
 					if(ret) {
 						SceneManager.getInstance().changeState(SceneManager.SceneType.INGAME);
-						SceneManager.getInstance().addAlert(new AlertDialog(panel.getName() + "À» Áö¾ú½À´Ï´Ù!"));						
-					} else {
-						SceneManager.getInstance().addAlert(new AlertDialog("µ·ÀÌ ºÎÁ·ÇØ¿ä!!"));						
-					}
+						SceneManager.getInstance().addAlert(new AlertDialog(panel.getName() + "ì„ ì§€ì—ˆìŠµë‹ˆë‹¤!"));						
+					} //ê±´ì„¤ ì™„ë£Œ
+					else {
+						SceneManager.getInstance().addAlert(new AlertDialog("ëˆì´ ë¶€ì¡±í•´ìš”!!"));						
+					} //ê±´ì„¤ ì‹¤íŒ¨
 					
-					SoundPlayer.getInstance().playOnce(SoundPlayer.SoundList.ButtonSound01);
+					SoundPlayer.getInstance().playOnce(SoundPlayer.SoundList.ButtonSound01); //ë°°ê²½ìŒì•…
 					
 				} //mouseClicked()
 
@@ -129,22 +130,22 @@ public class BuildScene extends JPanel {
 		btnExit.addActionListener(btnL);
 		btnExit.setClickSound(SoundPlayer.SoundList.ButtonSound01);
 		this.add(btnExit);
-		//EXIT ¹öÆ°
+		//EXIT ë²„íŠ¼
 		
-		this.add(orderPanel);
+		this.add(orderPanel); //ìŠ¤í¬ë¡¤ì— ë”°ë¼ ì›€ì§ì´ëŠ” íŒ¨ë„ì„ ì¶”ê°€
 		
 		for(HumanWalking hw : SceneManager.getInstance().getGameManager().getMyHuman()) {
 			hw.attached = false;
-		}
+		} //ì›€ì§ì´ëŠ” ì‚¬ëŒ ì—†ì• ê¸°
 		
 		
 		
-		// BGM ÇÃ·¹ÀÌ
+		// BGM í”Œë ˆì´
 		SoundPlayer.getInstance().play(SoundPlayer.SoundList.Curning);
 	} //BuildScene()
 	
 	private JPanel getBuildingPanel(Building b) {
-		// °Ç¹° ÇÏ³ª¸¦ ³ªÅ¸³»´Â ÆĞ³Î»ı¼º
+		// ê±´ë¬¼ í•˜ë‚˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” íŒ¨ë„ìƒì„±
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(300, 110));
@@ -159,8 +160,8 @@ public class BuildScene extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 			customFont = customFont2 = new Font("Arial", Font.BOLD, 30);
-		}	
-		
+		}
+		//font
 		JLabel lblIcon, lblName, lblPrice, lblCapacity;
 		
 		lblIcon = new JLabel();
@@ -188,12 +189,12 @@ public class BuildScene extends JPanel {
 		lblName.setBounds(120, 10, 250, 30);
 		panel.add(lblName);
 		
-		lblPrice = new JLabel("°¡°İ : " + String.format("%,d", b.getPrice()));
+		lblPrice = new JLabel("ê°€ê²© : " + String.format("%,d", b.getPrice()));
 		lblPrice.setFont(customFont2);
 		lblPrice.setBounds(120, 40, 250, 30);
 		panel.add(lblPrice);
 		
-		lblCapacity = new JLabel("¼ö¿ë ´É·Â : " + Integer.toString(b.getCapacity()));
+		lblCapacity = new JLabel("ìˆ˜ìš© ëŠ¥ë ¥ : " + Integer.toString(b.getCapacity()));
 		lblCapacity.setFont(customFont2);
 		lblCapacity.setBounds(120, 70, 250, 30);
 		panel.add(lblCapacity);
@@ -207,7 +208,7 @@ public class BuildScene extends JPanel {
 
 	public void paintComponent(Graphics page) {
 		super.paintComponent(page);
-		page.drawImage(Back.getImage(), 0, 0, null);
+		page.drawImage(Back.getImage(), 0, 0, null); //ë°°ê²½í™”ë©´ ê·¸ë¦¬ê¸°
 	} //paintComponent()
 	
 	private class buildingListener implements ActionListener
@@ -218,7 +219,7 @@ public class BuildScene extends JPanel {
 			Object obj = event.getSource();
 			
 			if(obj == btnExit) { 
-				SceneManager.getInstance().changeState(SceneManager.SceneType.INGAME);
+				SceneManager.getInstance().changeState(SceneManager.SceneType.INGAME); //Xë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ê²Œì„ í™”ë©´ìœ¼ë¡œ ëŒì•„ê°
 			}
 
 		
@@ -234,22 +235,22 @@ public class BuildScene extends JPanel {
 		public void mouseWheelMoved(MouseWheelEvent event) {
 			// TODO Auto-generated method stub
 			
-			int n = event.getWheelRotation(); //ÈÙ À§ ¾Æ·¡ ±¸ºĞ
+			int n = event.getWheelRotation(); //íœ  ìœ„ ì•„ë˜ êµ¬ë¶„
 			
 			if(n > 0)
 			{
 				if(changingY > -400) 
 				{
-					changingY -= 50; //ÈÙÀ» ³»¸®¸é ºôµù ÆĞ³ÎÀÌ ³ªÅ¸³ª´Â YÁÂÇ¥ °¨¼Ò
-					orderPanel.setLocation(0, changingY);
+					changingY -= 50; //íœ ì„ ë‚´ë¦¬ë©´ ë¹Œë”© íŒ¨ë„ì´ ë‚˜íƒ€ë‚˜ëŠ” Yì¢Œí‘œ ê°ì†Œ
+					orderPanel.setLocation(0, changingY); //ë°”ë€ ê°’ì— ë”°ë¼ íŒ¨ë„ì˜ ìœ„ì¹˜ ì¡°ì •
 				}
 			} //mouse wheel down
 			else
 			{
 				if(changingY < 0)
 				{
-					changingY += 50; //ÈÙÀ» ¿Ã¸®¸é ºôµù ÆĞ³ÎÀÌ ³ªÅ¸³ª´Â YÁÂÇ¥ Áõ°¡
-					orderPanel.setLocation(0, changingY);
+					changingY += 50; //íœ ì„ ì˜¬ë¦¬ë©´ ë¹Œë”© íŒ¨ë„ì´ ë‚˜íƒ€ë‚˜ëŠ” Yì¢Œí‘œ ì¦ê°€
+					orderPanel.setLocation(0, changingY); //ë°”ë€ ê°’ì— ë”°ë¼ íŒ¨ë„ì˜ ìœ„ì¹˜ ì¡°ì •
 				}
 			} //mouse wheel up
 		} // mouseWheelMoved()
