@@ -30,22 +30,22 @@ public class EventDialog extends JPanel {
 	public EventDialog(int random) {
 		super();
 		
-		userName = SceneManager.getInstance().getUserName() + " ÃÑÀå´Ô! ";
+		userName = SceneManager.getInstance().getUserName() + " ì´ì¥ë‹˜! "; //userNameì„ ë¶™ì¸ë‹¤
 		
 		messageList = new String[7];
 
-		messageList[0] = "¿ÜºÎ¿¡ Çà»ç¸¦ À§ÇØ ´ë¾çÈ¦À» ºô·ÁÁÖ½Ã°Ú½À´Ï±î?"; //yes : µ· Áõ°¡, Çàº¹µµ °¨¼Ò
-		messageList[1] = "ÁÖÂ÷ºñ¸¦ ¿Ã¸®½Ã°Ú½À´Ï±î?"; //yes : µ· Áõ°¡, Çàº¹µµ °¨¼Ò
-		messageList[2] = "½ÄÁßµ¶ ÇÇÇØ º¸»óÀ» ÇÏ½Ã°Ú½À´Ï±î?"; //yes : µ· °¨¼Ò, Çàº¹µµ Áõ°¡
-		messageList[3] = "±³È¯ ÇĞ»ı ÇÁ·Î±×·¥À» ½Ç½ÃÇÏ½Ã°Ú½À´Ï±î?"; //yes : µ· °¨¼Ò, ´É·Â Áõ°¡
-		messageList[4] = "ÇØ¿Ü ÇĞÈ¸¿¡ Âü°¡ÇÏ½Ã°Ú½À´Ï±î?"; //yes : µ· °¨¼Ò, ´É·Â Áõ°¡
-		messageList[5] = "SWÁß½É´ëÇĞ¿¡ ¼±Á¤µÇ½Ã°Ú½À´Ï±î?"; //yes : µ· Áõ°¡, ´É·Â Áõ°¡, Çàº¹µµ Áõ°¡
-		messageList[6] = "ÇĞ±³ Æò°¡´ÜÀÌ ¿Ô½À´Ï´Ù. ¸¶ÁßÀ» ³ª°¡½Ã°Ú½À´Ï±î?"; //yes : µ· °¨¼Ò, ´É·Â °¨¼Ò, Çàº¹µµ °¨¼Ò
+		messageList[0] = "ì™¸ë¶€ì— í–‰ì‚¬ë¥¼ ìœ„í•´ ëŒ€ì–‘í™€ì„ ë¹Œë ¤ì£¼ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ì¦ê°€, í–‰ë³µë„ ê°ì†Œ
+		messageList[1] = "ì£¼ì°¨ë¹„ë¥¼ ì˜¬ë¦¬ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ì¦ê°€, í–‰ë³µë„ ê°ì†Œ
+		messageList[2] = "ì‹ì¤‘ë… í”¼í•´ ë³´ìƒì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ê°ì†Œ, í–‰ë³µë„ ì¦ê°€
+		messageList[3] = "êµí™˜ í•™ìƒ í”„ë¡œê·¸ë¨ì„ ì‹¤ì‹œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ê°ì†Œ, ëŠ¥ë ¥ ì¦ê°€
+		messageList[4] = "í•´ì™¸ í•™íšŒì— ì°¸ê°€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ê°ì†Œ, ëŠ¥ë ¥ ì¦ê°€
+		messageList[5] = "SWì¤‘ì‹¬ëŒ€í•™ì— ì„ ì •ë˜ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ì¦ê°€, ëŠ¥ë ¥ ì¦ê°€, í–‰ë³µë„ ì¦ê°€
+		messageList[6] = "í•™êµ í‰ê°€ë‹¨ì´ ì™”ìŠµë‹ˆë‹¤. ë§ˆì¤‘ì„ ë‚˜ê°€ì‹œê² ìŠµë‹ˆê¹Œ?"; //yes : ëˆ ê°ì†Œ, ëŠ¥ë ¥ ê°ì†Œ, í–‰ë³µë„ ê°ì†Œ
 		
-		this.eventKind = random;
+		this.eventKind = random; //randomê°’ì— ë”°ë¼ ì´ë²¤íŠ¸ ì¢…ë¥˜ ì„¤ì •
 		
 		try {
-			Image img = ImageIO.read(new File("res/event/" + random + ".png")); //·£´ıÀ¸·Î ÀÌ¹ÌÁö °áÁ¤
+			Image img = ImageIO.read(new File("res/event/" + random + ".png")); //ëœë¤ìœ¼ë¡œ ì´ë¯¸ì§€ ê²°ì •
 			BufferedImage bImg = (BufferedImage)img;
 			Image newImage = bImg.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
 			ImageIcon icon = new ImageIcon(newImage);
@@ -53,17 +53,18 @@ public class EventDialog extends JPanel {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		this.setMessage(messageList[random]); //·£´ıÀ¸·Î ¼±ÅÃµÈ ÀÌ¹ÌÁö¿¡ ¸Â´Â ¸Ş½ÃÁö °áÁ¤
+		this.setMessage(messageList[random]); //ëœë¤ìœ¼ë¡œ ì„ íƒëœ ì´ë¯¸ì§€ì— ë§ëŠ” ë©”ì‹œì§€ ê²°ì •
 
 		this.setBackground(new Color(255, 200, 0));
 		this.setOpaque(true);
 		
 		render();
-	}
+	} //EventDialog()
 
 	public void render() {
 		this.setPreferredSize(new Dimension(500, 320));
 		this.setLayout(null);
+		//Dialog size
 		
 		btnL = new btnListener();
 		
@@ -72,7 +73,8 @@ public class EventDialog extends JPanel {
 		lblIcon.setBounds(50, 0, 500, 200);
 
 		this.add(lblIcon);
-
+		//image
+		
 		lblMessage = new JLabel();
 		lblMessage.setText(this.message);
 		lblMessage.setBounds(10, 230, 500, 30);
@@ -80,21 +82,21 @@ public class EventDialog extends JPanel {
 		lblMessage.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		lblName = new JLabel();
-		switch(eventKind) //ÀÌº¥Æ® Á¾·ù¿¡ µû¶ó ´Ù¸£°Ô ¼³Á¤
+		switch(eventKind) //ì´ë²¤íŠ¸ ì¢…ë¥˜ì— ë”°ë¼ ë‹¤ë¥´ê²Œ ì„¤ì •
 		{
-		case 0 : lblName.setText(this.userName + "ÄÜ¼­Æ®°¡ ¿­¸³´Ï´Ù!");
+		case 0 : lblName.setText(this.userName + "ì½˜ì„œíŠ¸ê°€ ì—´ë¦½ë‹ˆë‹¤!");
 			break;
-		case 1 : lblName.setText(this.userName + "ÁÖÂ÷ ¿ä±İÀÌ ³Ê¹« ³·½À´Ï´Ù");
+		case 1 : lblName.setText(this.userName + "ì£¼ì°¨ ìš”ê¸ˆì´ ë„ˆë¬´ ë‚®ìŠµë‹ˆë‹¤");
 			break;
-		case 2 : lblName.setText(this.userName + "½ÄÁßµ¶ÀÌ ¹ß»ıÇß½À´Ï´Ù!");
+		case 2 : lblName.setText(this.userName + "ì‹ì¤‘ë…ì´ ë°œìƒí–ˆìŠµë‹ˆë‹¤!");
 			break;
-		case 3 : lblName.setText(this.userName + "ÇØ¿Ü ÇĞ±³¿¡¼­ Á¦¾ÈÀÌ ¿Ô½À´Ï´Ù!");
+		case 3 : lblName.setText(this.userName + "í•´ì™¸ í•™êµì—ì„œ ì œì•ˆì´ ì™”ìŠµë‹ˆë‹¤!");
 			break;
-		case 4 : lblName.setText(this.userName + "ÇĞÈ¸¿¡ ÃÊ´ë¹Ş¾Ò½À´Ï´Ù!");
+		case 4 : lblName.setText(this.userName + "í•™íšŒì— ì´ˆëŒ€ë°›ì•˜ìŠµë‹ˆë‹¤!");
 			break;
-		case 5 : lblName.setText(this.userName + "ÃàÇÏÇÕ´Ï´Ù!");
+		case 5 : lblName.setText(this.userName + "ì¶•í•˜í•©ë‹ˆë‹¤!");
 			break;
-		case 6 : lblName.setText(this.userName + "Å«ÀÏ³µ½À´Ï´Ù!");
+		case 6 : lblName.setText(this.userName + "í°ì¼ë‚¬ìŠµë‹ˆë‹¤!");
 			break;
 		default : lblName.setText(this.userName);	
 		}
@@ -103,6 +105,7 @@ public class EventDialog extends JPanel {
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setFont(new Font("Dotum", Font.BOLD, 15));
 		this.add(lblName);
+		//text
 		
 		btnYes = new ImageButton();
 		btnYes.setNormalImage("res/event/yes_btn_normal.png");
@@ -120,6 +123,8 @@ public class EventDialog extends JPanel {
 		btnNo.addActionListener(btnL);
 		this.add(btnNo);
 		
+		//button
+		
 		if(this.message.length() > 10) {
 			lblMessage.setFont(new Font("Dotum", Font.BOLD, 12));
 		} else {
@@ -127,7 +132,8 @@ public class EventDialog extends JPanel {
 		}
 		
 		this.add(lblMessage);
-	}
+		//font size
+	} //render()
 	
 	public String getMessage() {
 		return message;
@@ -181,9 +187,11 @@ public class EventDialog extends JPanel {
 	public Object getBtnYes() {return btnYes;}
 	public Object getBtnNo() {return btnNo;}
 	
+	//get/set method
+	
 	public void SelectedHandling()
 	{
-		btnYes.doClick(); //¼±ÅÃµÇÁö ¾ÊÀ» °æ¿ì °­Á¦ ¼±ÅÃ
+		btnYes.doClick(); //ì„ íƒë˜ì§€ ì•Šì„ ê²½ìš° ê°•ì œ ì„ íƒ
 	} //SelectedHandling()
 	
 	private class btnListener implements ActionListener
@@ -194,105 +202,105 @@ public class EventDialog extends JPanel {
 			// TODO Auto-generated method stub
 			
 			obj = event.getSource();
-			GameManager mgr = SceneManager.getInstance().getGameManager();
+			GameManager mgr = SceneManager.getInstance().getGameManager(); //GameManager
 			
 			if(eventKind == 0)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() + 100000);
-					SceneManager.getInstance().addAlert(new AlertDialog("´ë¾çÈ¦À» ºô·ÁÁÖ¾ú½À´Ï´Ù"));
-				}
+					SceneManager.getInstance().addAlert(new AlertDialog("ëŒ€ì–‘í™€ì„ ë¹Œë ¤ì£¼ì—ˆìŠµë‹ˆë‹¤"));
+				} //Yes 
 				else if(obj == btnNo)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, 10, 10, 10, 10, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("´ë¾çÈ¦Àº ÆòÈ­·Ó½À´Ï´Ù"));
-				}
-			} //´ë¾çÈ¦ ÀÌº¥Æ®
+					SceneManager.getInstance().addAlert(new AlertDialog("ëŒ€ì–‘í™€ì€ í‰í™”ë¡­ìŠµë‹ˆë‹¤"));
+				} //No
+			} //ëŒ€ì–‘í™€ ì´ë²¤íŠ¸
 			else if(eventKind == 1)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() + 100000);
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -10, -10, -10, -10, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("ÁÖÂ÷ºñ°¡ ¿Ã¶ú½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("ì£¼ì°¨ë¹„ê°€ ì˜¬ëìŠµë‹ˆë‹¤"));
 				}
 				else if(obj == btnNo)
 				{
 					System.out.println("NO!");
 					mgr.applyEffect(new Effect(0, 0, 0, 0, 5, 5, 5, 5, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("ÁÖÂ÷ºñ°¡ µ¿°áµÇ¾ú½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("ì£¼ì°¨ë¹„ê°€ ë™ê²°ë˜ì—ˆìŠµë‹ˆë‹¤"));
 				}
-			} //ÁÖÂ÷ºñ ÀÌº¥Æ®
+			} //ì£¼ì°¨ë¹„ ì´ë²¤íŠ¸
 			else if(eventKind == 2)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() - 50000);
 					mgr.applyEffect(new Effect(0, 0, 0, 0, 10, 10, 10, 10, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("½ÄÁßµ¶ ÇÇÇØ º¸»óÀ» ÇÏ¿´½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("ì‹ì¤‘ë… í”¼í•´ ë³´ìƒì„ í•˜ì˜€ìŠµë‹ˆë‹¤"));
 				}
 				else if(obj == btnNo)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -10, -10, -10, -10, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("Ç×ÀÇ ÀüÈ­°¡ ºø¹ßÄ¡°í ÀÖ½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("í•­ì˜ ì „í™”ê°€ ë¹—ë°œì¹˜ê³  ìˆìŠµë‹ˆë‹¤"));
 				}
-			} //½ÄÁßµ¶ ÀÌº¥Æ®
+			} //ì‹ì¤‘ë… ì´ë²¤íŠ¸
 			else if(eventKind == 3)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() - 50000);
 					mgr.applyEffect(new Effect(10, 10, 10, 10, 0, 0, 0, 0, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("±³È¯ ÇĞ»ıÀÌ ¸¹¾ÆÁ³½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("êµí™˜ í•™ìƒì´ ë§ì•„ì¡ŒìŠµë‹ˆë‹¤"));
 				}
 				else if(obj == btnNo)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -5, -5, -5, -5, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("100% ÇÑ±¹ÀÎ ÇĞ»ıÀÔ´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("100% í•œêµ­ì¸ í•™ìƒì…ë‹ˆë‹¤"));
 				}
-			} //±³È¯ ÇĞ»ı ÀÌº¥Æ®
+			} //êµí™˜ í•™ìƒ ì´ë²¤íŠ¸
 			else if(eventKind == 4)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() + 50000);
 					mgr.applyEffect(new Effect(10, 10, 10, 10, 0, 0, 0, 0, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("ÇØ¿Ü ÇĞÈ¸¿¡ Âü¼®ÇÏ¿´½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("í•´ì™¸ í•™íšŒì— ì°¸ì„í•˜ì˜€ìŠµë‹ˆë‹¤"));
 				}
 				else if(obj == btnNo)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -5, -5, -5, -5, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("ÇØÈ¸ ÇĞÈ¸¿¡ ºÒÂüÇß½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("í•´íšŒ í•™íšŒì— ë¶ˆì°¸í–ˆìŠµë‹ˆë‹¤"));
 				}
-			} //ÇØ¿Ü ÇĞÈ¸ ÀÌº¥Æ®
+			} //í•´ì™¸ í•™íšŒ ì´ë²¤íŠ¸
 			else if(eventKind == 5)
 			{
 				if(obj == btnYes)
 				{
 					mgr.setMoney(mgr.getMoney() + 100000);
 					mgr.applyEffect(new Effect(0, 0, 10, 0, 0, 0, 10, 0, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("SWÁß½É´ëÇĞ¿¡ ¼±Á¤µÇ¾ú½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("SWì¤‘ì‹¬ëŒ€í•™ì— ì„ ì •ë˜ì—ˆìŠµë‹ˆë‹¤"));
 				}
 				else if(obj == btnNo)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -2, -2, -2, -2, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("SWÁß½É´ëÇĞÀº ´ÙÀ½ ±âÈ¸¿¡"));
+					SceneManager.getInstance().addAlert(new AlertDialog("SWì¤‘ì‹¬ëŒ€í•™ì€ ë‹¤ìŒ ê¸°íšŒì—"));
 				}
-			} //SWÁß½É´ëÇĞ ÀÌº¥Æ®
+			} //SWì¤‘ì‹¬ëŒ€í•™ ì´ë²¤íŠ¸
 			else if(eventKind == 6)
 			{
 				if(obj == btnNo)
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("´ç½ÅÀº ±âÈ¸ÁÖÀÇÀÚ.."));
+					SceneManager.getInstance().addAlert(new AlertDialog("ë‹¹ì‹ ì€ ê¸°íšŒì£¼ì˜ì.."));
 				}
 				else if(obj == btnYes)
 				{
 					mgr.applyEffect(new Effect(0, 0, 0, 0, -10, -10, -10, -10, "", ""));
-					SceneManager.getInstance().addAlert(new AlertDialog("Æò°¡´ÜÀÇ Ç¥Á¤ÀÌ ¾ÈÁÁ½À´Ï´Ù"));
+					SceneManager.getInstance().addAlert(new AlertDialog("í‰ê°€ë‹¨ì˜ í‘œì •ì´ ì•ˆì¢‹ìŠµë‹ˆë‹¤"));
 				}
-			} //ÇĞ±³ Æò°¡´Ü ÀÌº¥Æ®
-			SceneManager.getInstance().getGameManager().setOccur(false);
+			} //í•™êµ í‰ê°€ë‹¨ ì´ë²¤íŠ¸
+			SceneManager.getInstance().getGameManager().setOccur(false); //ì´ë¯¸ ì¼ì–´ë‚œ ì´ë²¤íŠ¸
 		} //actionPerformed()
 	} //btnListener class
 } //EventDialog class
