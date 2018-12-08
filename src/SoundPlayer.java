@@ -9,43 +9,45 @@ import javax.sound.sampled.Clip;
 public class SoundPlayer {
 
 	private static SoundPlayer instance;
+	//data
 	
 	public static SoundPlayer getInstance() {
 		if(instance == null) {
 			instance = new SoundPlayer();	
 		}
 		return instance;
-	}
+	} //getInstance()
 
 	
 	public enum SoundList {
 		Jjangu, MapleMain, Ellinia, Curning, Ludibriam, ButtonSound01
-	}
+	} //bgm enum
 	
-	private Map<SoundList, String> soundPath;
-	private Map<SoundList, Clip> clips;
-	private SoundList nowPlay;
+	private Map<SoundList, String> soundPath; //ê²½ë¡œ
+	private Map<SoundList, Clip> clips; //clip
+	private SoundList nowPlay; //í˜„ì¬ bgm
+	//data 
 	
 	public SoundPlayer() {
 		
 		/*
-		 * EnumMap Âü°í
+		 * EnumMap ì°¸ê³ 
 		 * https://stackoverflow.com/questions/12669497/using-enum-as-key-for-map
 		 * */
 		soundPath = new EnumMap<SoundList, String>(SoundList.class);
 		clips = new EnumMap<SoundList, Clip>(SoundList.class);
 		
 		
-		/* »ç¿îµå °æ·Î ÃÊ±âÈ­ */
-		soundPath.put(SoundList.MapleMain, 	"¸ŞÀÌÇÃ¸ŞÀÎ.wav");
-		soundPath.put(SoundList.Jjangu, 	"Â¯±¸.wav");
-		soundPath.put(SoundList.Ellinia, 	"¿¤¸®´Ï¾Æ.wav");
-		soundPath.put(SoundList.Curning, 	"Ä¿´×½ÃÆ¼.wav");
-		soundPath.put(SoundList.Ludibriam,  "·çµğºê¸®¾ö.wav");
+		/* ì‚¬ìš´ë“œ ê²½ë¡œ ì´ˆê¸°í™” */
+		soundPath.put(SoundList.MapleMain, 	"ë©”ì´í”Œë©”ì¸.wav");
+		soundPath.put(SoundList.Jjangu, 	"ì§±êµ¬.wav");
+		soundPath.put(SoundList.Ellinia, 	"ì—˜ë¦¬ë‹ˆì•„.wav");
+		soundPath.put(SoundList.Curning, 	"ì»¤ë‹ì‹œí‹°.wav");
+		soundPath.put(SoundList.Ludibriam,  "ë£¨ë””ë¸Œë¦¬ì—„.wav");
 		soundPath.put(SoundList.ButtonSound01,  "btn_sound.wav");
 		
 		clips.clear();
-	}
+	} //SoundPlayer()
 	
 	private final String bgmDir = "res/bgm/";
 	
@@ -60,20 +62,21 @@ public class SoundPlayer {
 				Clip clip = AudioSystem.getClip();
 				clip.open(stream);
 				clips.put(s, clip);
+					//set bgm clip
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} //
 
 		
 		if(nowPlay != null) {
 			this.stop(nowPlay);
 		}		
 		//clips.get(s).setFramePosition(10);		
-		clips.get(s).loop(Clip.LOOP_CONTINUOUSLY);
+		clips.get(s).loop(Clip.LOOP_CONTINUOUSLY); //loop play
 		
 		nowPlay = s;
-	}
+	} //play()
 
 	public void playOnce(SoundList s) {
 		File f = new File(bgmDir + soundPath.get(s));
@@ -81,16 +84,16 @@ public class SoundPlayer {
 		AudioInputStream stream = AudioSystem.getAudioInputStream(f);
 		Clip clip = AudioSystem.getClip();
 		clip.open(stream);
-		clip.start();
+		clip.start(); //play once
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}//playOnce()
 	
 	public void stop(SoundList s) {
 		if(clips.get(s) != null) {
-			clips.get(s).stop();
+			clips.get(s).stop(); //bgm stop
 		}
-	}
+	}//stop()
 
-}
+} //SoundPlayer class
