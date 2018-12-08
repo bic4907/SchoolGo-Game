@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 public class MainFrame {
 	
-	/* Singleton Ŭ���� */
+	/* Singleton 클래스 */
 	private static MainFrame instance;
 	public static MainFrame getInstance() {
 		if(instance == null) {
@@ -21,19 +21,22 @@ public class MainFrame {
 		frame = new JFrame();
 		frame.setPreferredSize(new Dimension(800, 500));
 		frame.setResizable(false);
-		frame.setTitle("�б� ��!");
+		frame.setTitle("SchoolGo");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
 	}
 	
 	public void setPanel(JPanel panel) {
+		// 만약 기존 패널이 붙어있었다면 제거
 		if(currentPanel != null) {
 			currentPanel.setVisible(false);
 			frame.getContentPane().remove(currentPanel);
 		}
+		// 새로운 패널 추가
 		frame.getContentPane().add(panel);
 
+		// 현재 
 		currentPanel = panel;
 	}
 	
