@@ -36,7 +36,16 @@ public class Building {
 		else
 			this.capacity = capacity;
 	}
-
+	
+	public ImageIcon getImage() {
+		return this.image;
+	}
+	public void setImage(ImageIcon image) {
+		this.image = image;
+	}
+	public Vector<Effect> getEffects() {
+		return effects;
+	}
 	// get / set method
 	
 	public Building() {	
@@ -55,7 +64,7 @@ public class Building {
 		this.position = position;
 		this.image = new ImageIcon(imagePath);
 		this.effects = new Vector<Effect>();
-	} //Building(parameter)
+	}
 	
 	public Building(String name) {
 		super();
@@ -69,19 +78,10 @@ public class Building {
 		this.image = new ImageIcon(b.getImage().toString());
 		this.effects = b.effects;
 	}
+	 //Building(parameter)
 	
-	
-	public ImageIcon getImage() {
-		return this.image;
-	}
-	public void setImage(ImageIcon image) {
-		this.image = image;
-	}
-	public Vector<Effect> getEffects() {
-		return effects;
-	}
 	public void addEffect(Effect e) {
 		this.effects.add(e);
-	}
+	} //addEffect()
 
 } //Building class
