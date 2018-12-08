@@ -443,14 +443,14 @@ public class GameManager {
 				college_desc = s;
 				
 				college_desc += "  지식수준 ";
-				if(avg_knowledge.get(s) >= 0) {
+				if(avg_knowledge.get(s) >= 50) {
 					college_desc += "높음 ";
 				} else {
 					college_desc += "낮음 ";
 				}
 				
 				college_desc += "행복도 ";
-				if(avg_happyness.get(s) >= 0) {
+				if(avg_happyness.get(s) >= 70) {
 					college_desc += "높음 ";
 				} else {
 					college_desc += "낮음 ";
