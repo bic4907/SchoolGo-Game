@@ -11,32 +11,32 @@ import java.io.IOException;
 public class IngameScene extends JPanel {
 	
 
-	private ImageIcon iconMoney, iconTime, iconStud, iconProf, iconEntr;
-	private ImageButton btnIStud, btnIProf, btnIBuild; // ÀÌ¹ÌÁö¹öÆ°
-	private JPanel infoPanel; // °ÔÀÓÁ¤º¸ ´ã´Â ÆĞ³Î
-	private JLabel lblTime, lblMoney, lblStud, lblProf, lblEntr, lblSName; // °ÔÀÓÁ¤º¸
+	private ImageIcon iconMoney, iconTime, iconStud, iconProf, iconEntr; // ì‚¬ì§„
+	private ImageButton btnIStud, btnIProf, btnIBuild; // ì´ë¯¸ì§€ë²„íŠ¼
+	private JPanel infoPanel; // ê²Œì„ì •ë³´ ë‹´ëŠ” íŒ¨ë„
+	private JLabel lblTime, lblMoney, lblStud, lblProf, lblEntr, lblSName; // ê²Œì„ì •ë³´
 	private CollegeSelectDialog scoutDlg;
 	
 	
-	private ImageIcon backIcon = new ImageIcon("res/IngameScene2.png"); // ¹è°æ
+	private ImageIcon backIcon = new ImageIcon("res/IngameScene2.png"); // ë°°ê²½
 
-	private BtnListener btnL;
+	private BtnListener btnL; // ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 	
-	private GameThread gameThd;
-	private HumanWalkingThread hwThd;
+	private GameThread gameThd; // ê²Œì„ìš© ì“°ë ˆë“œ
+	private HumanWalkingThread hwThd; // NPCìš© ì“°ë ˆë“œ
 	public IngameScene() {
-		GameManager manager = SceneManager.getInstance().getGameManager();
+		GameManager manager = SceneManager.getInstance().getGameManager(); // ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 		
-		setPreferredSize(new Dimension(800,500)); // Å©±â
+		setPreferredSize(new Dimension(800,500)); // í¬ê¸°
 		setLayout(null);
 
-		iconMoney = new ImageIcon("res/lblicon/money.png"); // label¿¡ Ãß°¡ÇÒ µ· ¾ÆÀÌÄÜ
-		iconTime = new ImageIcon("res/lblicon/time.png"); // label¿¡ Ãß°¡ÇÒ ½Ã°£ ¾ÆÀÌÄÜ
-		iconStud = new ImageIcon("res/lblicon/stud.png"); // label¿¡ Ãß°¡ÇÒ ÇĞ»ı ¾ÆÀÌÄÜ
-		iconProf = new ImageIcon("res/lblicon/prof.png"); // label¿¡ Ãß°¡ÇÒ ±³¼ö ¾ÆÀÌÄÜ
-		iconEntr = new ImageIcon("res/lblicon/entr.png"); // ÇĞ±³ ¾ÆÀÌÄÜ
+		iconMoney = new ImageIcon("res/lblicon/money.png"); // labelì— ì¶”ê°€í•  ëˆ ì•„ì´ì½˜
+		iconTime = new ImageIcon("res/lblicon/time.png"); // labelì— ì¶”ê°€í•  ì‹œê°„ ì•„ì´ì½˜
+		iconStud = new ImageIcon("res/lblicon/stud.png"); // labelì— ì¶”ê°€í•  í•™ìƒ ì•„ì´ì½˜
+		iconProf = new ImageIcon("res/lblicon/prof.png"); // labelì— ì¶”ê°€í•  êµìˆ˜ ì•„ì´ì½˜
+		iconEntr = new ImageIcon("res/lblicon/entr.png"); // í•™êµ ì•„ì´ì½˜
 
-		Font customFont2, customFont1;
+		Font customFont2, customFont1; // í°íŠ¸ìƒì„±
 		try {
 			customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("res/font/BMHANNAPro.ttf")).deriveFont(18f);
 			customFont1 = Font.createFont(Font.TRUETYPE_FONT, new File("res/font/BMHANNAPro.ttf")).deriveFont(14f);
@@ -44,18 +44,18 @@ public class IngameScene extends JPanel {
 			e.printStackTrace();
 			customFont2 = new Font("Arial", Font.BOLD, 30);
 			customFont1 = new Font("mFont", Font.BOLD, 12);
-		}	// JLabel ÆùÆ®
+		}	// JLabel í°íŠ¸
 		
 		btnL = new BtnListener(); // buttonListener
 		
-		infoPanel = new JPanel(); // Label´ã´Â Panel 
+		infoPanel = new JPanel(); // Labelë‹´ëŠ” Panel 
 		infoPanel.setBounds(100,20,430,55);
 		infoPanel.setBackground(Color.ORANGE);
 		infoPanel.setLayout(null);
 		this.add(infoPanel);
 	
 		
-		lblTime = new JLabel();
+		lblTime = new JLabel(); 
 		lblTime.setBounds(10,5,250,20);
 		lblTime.setFont(customFont2);
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,27 +64,28 @@ public class IngameScene extends JPanel {
 				String.valueOf(manager.getDay()));
 		lblTime.setIcon(iconTime);
 		infoPanel.add(lblTime);
+		//ì‹œê°„ì •ë³´
 		
 		lblMoney = new JLabel(""+ manager.getMoney(),iconMoney,SwingConstants.LEFT);
 		lblMoney.setBounds(10,30,250,20);
 		lblMoney.setFont(customFont2);
 		lblMoney.setHorizontalAlignment(SwingConstants.CENTER);
 		infoPanel.add(lblMoney);
-		// µ·
+		// ëˆì •ë³´
 		
 		lblStud = new JLabel("",iconStud,SwingConstants.LEFT);
 		lblStud.setBounds(220,5,200,20);
 		lblStud.setFont(customFont2);
 		lblStud.setHorizontalAlignment(SwingConstants.CENTER);
 		infoPanel.add(lblStud);
-		// ÇĞ»ı ¼ö
+		// í•™ìƒ ìˆ˜
 		
 		lblProf = new JLabel("",iconProf,SwingConstants.LEFT);
 		lblProf.setBounds(220,30,200,20);
 		lblProf.setFont(customFont2);
 		lblProf.setHorizontalAlignment(SwingConstants.CENTER);
 		infoPanel.add(lblProf);
-		// ±³¼ö ¼ö
+		// êµìˆ˜ ìˆ˜
 		
 		btnIBuild = new ImageButton();
 		btnIBuild.setNormalImage("res/Ingame/BUILDB.png");
@@ -92,7 +93,7 @@ public class IngameScene extends JPanel {
 		btnIBuild.setBounds(650,10,100,100);
 		btnIBuild.addActionListener(btnL);
 		add(btnIBuild);
-		// °Ç¹° °Ç¼³ ¹öÆ°
+		// ê±´ë¬¼ ê±´ì„¤ ë²„íŠ¼
 		
 		btnIStud = new ImageButton();
 		btnIStud.setNormalImage("res/Ingame/STUDB.png");
@@ -100,7 +101,7 @@ public class IngameScene extends JPanel {
 		btnIStud.setBounds(15, 90, 100, 50);
 		btnIStud.addActionListener(btnL);
 		add(btnIStud);
-		// ÇĞ»ı ¸ğÁı ¹öÆ°
+		// í•™ìƒ ëª¨ì§‘ ë²„íŠ¼
 		
 		btnIProf = new ImageButton();
 		btnIProf.setNormalImage("res/Ingame/PROFB.png");
@@ -108,7 +109,7 @@ public class IngameScene extends JPanel {
 		btnIProf.setBounds(15, 140, 100, 50);
 		btnIProf.addActionListener(btnL);
 		add(btnIProf);
-		// ±³¼ö ¸ğÁı ¹öÆ°
+		// êµìˆ˜ ëª¨ì§‘ ë²„íŠ¼
 
 
 		lblSName = new JLabel();
@@ -118,31 +119,31 @@ public class IngameScene extends JPanel {
 		lblSName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSName.setFont(customFont1);
 		lblSName.setBounds(20,70,82,20);
-		add(lblSName); // ÇĞ±³ÀÌ¸§ Ãß°¡
+		add(lblSName); // í•™êµì´ë¦„ ì¶”ê°€
 		
 		lblEntr = new JLabel(iconEntr);
 		lblEntr.setBounds(10, 0, 100, 100);
-		add(lblEntr);
+		add(lblEntr); // í•™êµ ê·¸ë¦¼ ì¶”ê°€
 		
 		
-		// ¸¸¾à ÇĞ»ıÀÌ³ª ±³¼ö ¸ğÁı¹öÆ°À» ´©¸£¸é ¸ğÁıÃ¢À» ¶ç¾îÁÜ
+		// ë§Œì•½ í•™ìƒì´ë‚˜ êµìˆ˜ ëª¨ì§‘ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ëª¨ì§‘ì°½ì„ ë„ì–´ì¤Œ
 		scoutDlg = new CollegeSelectDialog();
 		scoutDlg.setBounds(200, 260, 400, 100);
 		scoutDlg.setVisible(false);
 		this.add(scoutDlg);		
 		
-		
+		// ì“°ë ˆë“œ
 		if(gameThd == null) {
 			gameThd = new GameThread();
 			gameThd.start();
-		}
+		} 
 		if(hwThd == null) {
 			hwThd = new HumanWalkingThread();
 			hwThd.start();
 		}
 		SoundPlayer.getInstance().play(SoundPlayer.SoundList.Ludibriam);
 		
-		render();
+		render(); // ìˆëŠ” ì •ë³´ë§Œí¼ í™”ë©´ì— ì¶”ê°€í•˜ê¸°
 	}
 
 	public void paintComponent(Graphics page)
@@ -153,19 +154,19 @@ public class IngameScene extends JPanel {
 			scoutDlg.setVisible(true);
 		} else {
 			scoutDlg.setVisible(false);
-		}
+		} // ì‹œê°„ë§ˆë‹¤ ëª¨ì§‘ì°½ ë„ìš°ê¸°
 			
 		
 		page.drawImage(backIcon.getImage(),0,0,this);
-	} // ¹è°æÈ­¸é Ãß°¡
+	} // ë°°ê²½í™”ë©´ ì¶”ê°€
 	
 	public void render() {
-		GameManager manager = SceneManager.getInstance().getGameManager();		
+		GameManager manager = SceneManager.getInstance().getGameManager(); // ì •ë³´		
 		
 
-		lblSName.setText(SceneManager.getInstance().getUserSchool()+"´ëÇĞ±³");
+		lblSName.setText(SceneManager.getInstance().getUserSchool()+"ëŒ€í•™êµ"); // ì…ë ¥í•œ ëŒ€í•™êµ ì´ë¦„ ë„ìš°ê¸°
 		
-		lblTime.setText(String.valueOf(manager.getMonth()) + "¿ù " + String.valueOf(manager.getDay()) + "ÀÏ");
+		lblTime.setText(String.valueOf(manager.getMonth()) + "ì›” " + String.valueOf(manager.getDay()) + "ì¼"); // ì‹œê°„
 		
 		if((manager.getDay() > 1 && manager.getDay() <= 5) || (manager.getDay() > 15 && manager.getDay() <= 20)) {
 			this.btnIStud.setVisible(true);
@@ -173,18 +174,18 @@ public class IngameScene extends JPanel {
 		} else {
 			this.btnIStud.setVisible(false);
 			this.btnIProf.setVisible(false);
-		}
+		} // ëª¨ì§‘ë²„íŠ¼ í™œì„±í™”
 		if(manager.getDay() == 1 || manager.getDay() == 15) {
-			SceneManager.getInstance().addAlert(new AlertDialog("°ğ ¿ø¼­Á¢¼ö°¡ ½ÃÀÛµË´Ï´Ù!"));
-		}
+			SceneManager.getInstance().addAlert(new AlertDialog("ê³§ ì›ì„œì ‘ìˆ˜ê°€ ì‹œì‘ë©ë‹ˆë‹¤!"));
+		} // ì§€ì • ì‹œê°„ë§ˆë‹¤ dialog ë„ìš°ê¸°
 
-		if(manager.getOccur() == false) //ÇÑ ´Ş¿¡ ÇÑ¹ø
+		if(manager.getOccur() == false) //í•œ ë‹¬ì— í•œë²ˆ
 		{
-			if((manager.getDay() >= 5) && (manager.getDay() <= 23)) //5ÀÏ ~ 23ÀÏ »çÀÌ¿¡ ·£´ı
+			if((manager.getDay() >= 5) && (manager.getDay() <= 23)) //5ì¼ ~ 23ì¼ ì‚¬ì´ì— ëœë¤
 			{	
 				if(manager.getDay() == manager.getRandomDay())
 				{
-					int random = (int)(Math.random()*7); //·£´ı ÀÌº¥Æ®
+					int random = (int)(Math.random()*7); //ëœë¤ ì´ë²¤íŠ¸
 					
 					for(int i = 0;i<7;i++)
 					{
@@ -192,7 +193,7 @@ public class IngameScene extends JPanel {
 						{
 							manager.getRandomList()[i] = random; 
 							break;
-						} //ÀÌº¥Æ®°¡ ÀÌ¹Ì ¹ß»ıÇßÀ½À» ¾Ë±â À§ÇØ ¹è¿­¿¡ ÇØ´ç ÀÌº¥Æ®¸¦ ÀúÀå 
+						} //ì´ë²¤íŠ¸ê°€ ì´ë¯¸ ë°œìƒí–ˆìŒì„ ì•Œê¸° ìœ„í•´ ë°°ì—´ì— í•´ë‹¹ ì´ë²¤íŠ¸ë¥¼ ì €ì¥ 
 						
 						else if(manager.getRandomList()[i] == random)
 						{
@@ -200,14 +201,14 @@ public class IngameScene extends JPanel {
 							{
 								random = (int)(Math.random()*7);
 							}
-						} //ÀÌ¹Ì ¹ß»ıÇÑ ÀÌº¥Æ®´Â ¹ß»ıÇÏÁö ¾Êµµ·ÏÇÔ
+						} //ì´ë¯¸ ë°œìƒí•œ ì´ë²¤íŠ¸ëŠ” ë°œìƒí•˜ì§€ ì•Šë„ë¡í•¨
 					}
 	
 					EventDialog ed = new EventDialog(random);
 					manager.setOccur(true);
 					SceneManager.getInstance().addEvent(ed);
 				}
-			} // ·£´ı ÀÌº¥Æ® ¹ß»ı
+			} // ëœë¤ ì´ë²¤íŠ¸ ë°œìƒ
 		}		
 		
 		this.lblMoney.setText(String.format("%,d", manager.getMoney()) + "(" + String.format("%+,d", manager.getLastIncome()) + ")");
@@ -215,13 +216,13 @@ public class IngameScene extends JPanel {
 				+ "/" + Integer.toString(manager.getAllCapacity())
 				);
 		this.lblProf.setText(Integer.toString(manager.getProfessorCount()));
-		
+		// ëˆ, í•™ìƒ, êµìˆ˜ ì •ë³´ ê°±ì‹ 
 		
 		for(Building b : manager.getMyBuilding()) {
 			
 			JLabel bIcon = new JLabel();
 
-			bIcon.setBounds(b.getposition().x, b.getposition().y, 100, 100);
+			bIcon.setBounds(b.getposition().x, b.getposition().y, 100, 100); // ìœ„ì¹˜ì— ë§ê²Œ 
 			
 			Image img;
 			try {
@@ -236,15 +237,15 @@ public class IngameScene extends JPanel {
 			}
 			
 			this.add(bIcon);
-		} // °Ç¹°ÀúÀåÇØ³õÀº ¹è¿­, °Ç¹° ±×¸®±â
+		} // ê±´ë¬¼ì €ì¥í•´ë†“ì€ ë°°ì—´, ê±´ë¬¼ ê·¸ë¦¬ê¸°
 		
 		for(HumanWalking data : manager.getMyHuman()) {
-			if(data.attached == false) {
-				add(data);
-				add(data.getEventPanel());
-				data.attached = true;
+			if(data.attached == false) { // ê·¸ë ¤ì§€ì§€ ì•Šì€ ì‚¬ëŒë§Œ ì¶”ê°€ë¡œ ê·¸ë¦¬ê¸°
+				add(data); // NPC
+				add(data.getEventPanel()); // NPC ì´ë²¤íŠ¸ íŒ¨ë„
+				data.attached = true; // ì •ë³´ ê°±ì‹ 
 			}
-		} // »ç¶÷ ±×¸®±â
+		} // ì‚¬ëŒ ê·¸ë¦¬ê¸°
 		
 		
 		if(manager.getScouting()) {
@@ -252,7 +253,7 @@ public class IngameScene extends JPanel {
 		} else {
 			scoutDlg.setVisible(false);
 		}
-		
+		// ëª¨ì§‘ìƒí™©ì— ë”°ë¼ í‘œì‹œí•˜ê³  ì§€ìš°ê¸°
 		repaint();
 
 	}
@@ -273,14 +274,14 @@ public class IngameScene extends JPanel {
 				manager.setScouting(true);
 				scoutDlg.setVisible(true);
 				scoutDlg.setType(GameManager.PersonType.Student);				
-			} // ÇĞ»ı¸ğÁı
+			} // í•™ìƒëª¨ì§‘ ë²„íŠ¼
 			
 			else if(obj == btnIProf)
 			{
 				manager.setScouting(true);
 				scoutDlg.setVisible(true);
 				scoutDlg.setType(GameManager.PersonType.Professor);
-			} // ±³¼ö¸ğÁı
+			} // êµìˆ˜ëª¨ì§‘ ë²„íŠ¼
 			
 			else if(obj == btnIBuild)	
 			{
@@ -291,7 +292,7 @@ public class IngameScene extends JPanel {
 				
 				SceneManager.getInstance().changeState(SceneManager.SceneType.BUILD);
 				
-			} // °Ç¹°°Ç¼³
+			} // ê±´ë¬¼ê±´ì„¤ ë²„íŠ¼
 		}
 		
 	}
@@ -300,7 +301,7 @@ public class IngameScene extends JPanel {
 	
 	
 	
-	/* 1ÃÊ¸¶´Ù °ÔÀÓ½Ã°£À» Èê·ÁÁÜ */
+	/* 1ì´ˆë§ˆë‹¤ ê²Œì„ì‹œê°„ì„ í˜ë ¤ì¤Œ */
 	
 	private class GameThread extends Thread {
 		
@@ -315,25 +316,25 @@ public class IngameScene extends JPanel {
 				}
 				
 				gm.nextDay();
-				render();
+				render(); // ì •ë³´ ê°±ì‹ 
 				
 				if(gm.getMonth() >= 7 || gm.getMoney() <= -500000) {
 					break;
-				}
+				} // ëë‚˜ëŠ” ì¡°ê±´
 			}
 			SceneManager.getInstance().changeState(SceneManager.SceneType.RESULT);
 			
 		}
 	}
 	
-	private class HumanWalkingThread extends Thread {
+	private class HumanWalkingThread extends Thread { // NPCìš© ì‹œê°„
 		
 		@Override
 		public void run() {
 			
 			GameManager gm = SceneManager.getInstance().getGameManager();
 			while(true) {
-				for(HumanWalking hw : gm.getMyHuman()) {
+				for(HumanWalking hw : gm.getMyHuman()) { // ê³„ì† ê°±ì‹ 
 					hw.setLocation(hw.x, hw.y);
 					hw.repaint();
 					hw.rEvent.repaint();
