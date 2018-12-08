@@ -442,28 +442,16 @@ public class GameManager {
 				
 				college_desc = s;
 				
-<<<<<<< HEAD
-				college_desc += "  Áö½Ä¼öÁØ ";
-				if(avg_knowledge.get(s) >= 50) {
-					college_desc += "³ôÀ½ ";
-=======
 				college_desc += "  ì§€ì‹ìˆ˜ì¤€ ";
-				if(avg_knowledge.get(s) >= 50) {
+				if(avg_knowledge.get(s) >= 0) {
 					college_desc += "ë†’ìŒ ";
->>>>>>> 8ad9be3f68010f0913864f35d0c293449982986c
 				} else {
 					college_desc += "ë‚®ìŒ ";
 				}
 				
-<<<<<<< HEAD
-				college_desc += "Çàº¹µµ ";
-				if(avg_happyness.get(s) >= 70) {
-					college_desc += "³ôÀ½ ";
-=======
 				college_desc += "í–‰ë³µë„ ";
-				if(avg_happyness.get(s) >= 70) {
+				if(avg_happyness.get(s) >= 0) {
 					college_desc += "ë†’ìŒ ";
->>>>>>> 8ad9be3f68010f0913864f35d0c293449982986c
 				} else {
 					college_desc += "ë‚®ìŒ ";
 				}
