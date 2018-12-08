@@ -44,19 +44,20 @@ public class TutorialScene extends JPanel {
 		this.setBackground(Color.WHITE);
 		
 		/* Init the Slides */
+		// Slide ê°ì²´ë¥¼ í†µí•´ ë¯¸ë¦¬ ìŠ¬ë¼ì´ë“œ ë‚´ìš©ì„ ì´ˆê¸°í™” 
 		this.slides = new Vector<Slide>();
-		this.slides.add(new Slide("res/tutorial/t1.jpg", "<html><p>¨ç¸Å´Ş 1ÀÏ, 15ÀÏ¸¶´Ù È°¼ºÈ­<br>µÇ´Â ÇĞ»ı/±³¼ö ¸ğÁı ¹öÆ°<br>Å¬¸¯½Ã °¢°¢ ÇĞ»ı, ±³¼ö ¼ö°¡ Áõ°¡<br>ÇĞ»ı ¼ö Áõ°¡ ½Ã ¼öÀÔ Áõ°¡<br>±³¼ö Áõ°¡½Ã ÇĞ¾÷µµ Áõ°¡, µ· °¨¼Ò<br><br>¨è°¢ ´Ü°ú´ë º° ¸ğÁı ¹öÆ°<br>´Ü°ú´ë¸¶´Ù ¿À¸£´Â ´É·ÂÄ¡°¡ ´Ù¸§<br></p></html>"));
-		this.slides.add(new Slide("res/tutorial/t2.jpg", "<html><p>¨çÇöÀç °ÔÀÓ ÇöÈ²<br>½Ã°£¿¡ µû¶ó ÀÌº¥Æ®°¡ ¹ß»ı<br>7¿ùÀÌ µÇ¸é °ÔÀÓÁ¾·á<br>ÇĞ»ı ¼ö¿Í ±³¼ö ¼ö¸¦ Ç¥½Ã<br>ÇöÀç °®°í ÀÖ´Â µ·°ú ¼öÀÔ Ç¥½Ã<br><br>¨èÇĞ»ı¸¶´Ù ·£´ıÀ¸·Î »ı±â´Â ÀÌº¥Æ®<br>Ã¥À» Å¬¸¯ÇÏ¸é ´É·ÂÄ¡°¡ ¿À¸§<br>ÇÏÆ® Å¬¸¯½Ã ÇĞ»ı Çàº¹µµ Áõ°¡</p></html>"));
-		this.slides.add(new Slide("res/tutorial/t3.jpg", "<html><p>¨ç°Ç¼³µÇ¾î ÀÖ´Â °Ç¹°<br>°Ç¹°¿¡ µû¶ó ÇĞ»ıÁ¤¿ø, ´É·ÂÄ¡ ¿µÇâ<br>°Ç¹° °Ç¼³ºñ¿ë, °ü¸®ºñ¿ë ¼Ò¸ğ<br><br>¨è°Ç¹° °Ç¼³ ¹öÆ°<br>Å¬¸¯½Ã °Ç¹°°Ç¼³ È­¸éÀ¸·Î ÀÌµ¿</p></html>"));
-		this.slides.add(new Slide("res/tutorial/t4.jpg", "<html><p>¨ç°Ç¹° °Ç¼³ ¹öÆ°<br>°Ç¹° °¡°İ°ú ´Ã¾î³ª´Â ÇĞ»ıÁ¤¿ø Ç¥½Ã<br>Å¬¸¯ ½Ã °ÔÀÓ¿¡ °Ç¹° °Ç¼³ÇÏ°í °ÔÀÓÈ­¸éÀ¸·Î ÀÌµ¿<br><br>¨è°Ç¹° °Ç¼³ È­¸é ³ª°¡±â ¹öÆ°<br>Å¬¸¯½Ã °Ç¹° °Ç¼³ ÇÏÁö ¾Ê°í °ÔÀÓÈ­¸éÀ¸·Î ÀÌµ¿</p></html>"));
-		this.slides.add(new Slide("res/tutorial/t5.jpg", "<html><p>¨ç·£´ı ÀÌº¥Æ®<br>¿©·¯°¡Áö ÀÌº¥Æ®°¡ ÀÖÀ½<br>°¢ ÀÌº¥Æ®¸¶´Ù °ÔÀÓ¿¡ ¿µÇâÀ» ÁÖ´Â°Ô ´Ù¸§<br><br>¨èÀÌº¥Æ® ¼±ÅÃ ¹öÆ°<br>ÇÃ·¹ÀÌ¾îÀÇ ¼±ÅÃ¿¡ µû¶ó ´É·ÂÄ¡, °ÔÀÓ °á°ú¿¡ ¿µÇâÀ» ÁÜ</p></html>"));
+		this.slides.add(new Slide("res/tutorial/t1.jpg", "<html><p>â‘ ë§¤ë‹¬ 1ì¼, 15ì¼ë§ˆë‹¤ í™œì„±í™”<br>ë˜ëŠ” í•™ìƒ/êµìˆ˜ ëª¨ì§‘ ë²„íŠ¼<br>í´ë¦­ì‹œ ê°ê° í•™ìƒ, êµìˆ˜ ìˆ˜ê°€ ì¦ê°€<br>í•™ìƒ ìˆ˜ ì¦ê°€ ì‹œ ìˆ˜ì… ì¦ê°€<br>êµìˆ˜ ì¦ê°€ì‹œ í•™ì—…ë„ ì¦ê°€, ëˆ ê°ì†Œ<br><br>â‘¡ê° ë‹¨ê³¼ëŒ€ ë³„ ëª¨ì§‘ ë²„íŠ¼<br>ë‹¨ê³¼ëŒ€ë§ˆë‹¤ ì˜¤ë¥´ëŠ” ëŠ¥ë ¥ì¹˜ê°€ ë‹¤ë¦„<br></p></html>"));
+		this.slides.add(new Slide("res/tutorial/t2.jpg", "<html><p>â‘ í˜„ì¬ ê²Œì„ í˜„í™©<br>ì‹œê°„ì— ë”°ë¼ ì´ë²¤íŠ¸ê°€ ë°œìƒ<br>7ì›”ì´ ë˜ë©´ ê²Œì„ì¢…ë£Œ<br>í•™ìƒ ìˆ˜ì™€ êµìˆ˜ ìˆ˜ë¥¼ í‘œì‹œ<br>í˜„ì¬ ê°–ê³  ìˆëŠ” ëˆê³¼ ìˆ˜ì… í‘œì‹œ<br><br>â‘¡í•™ìƒë§ˆë‹¤ ëœë¤ìœ¼ë¡œ ìƒê¸°ëŠ” ì´ë²¤íŠ¸<br>ì±…ì„ í´ë¦­í•˜ë©´ ëŠ¥ë ¥ì¹˜ê°€ ì˜¤ë¦„<br>í•˜íŠ¸ í´ë¦­ì‹œ í•™ìƒ í–‰ë³µë„ ì¦ê°€</p></html>"));
+		this.slides.add(new Slide("res/tutorial/t3.jpg", "<html><p>â‘ ê±´ì„¤ë˜ì–´ ìˆëŠ” ê±´ë¬¼<br>ê±´ë¬¼ì— ë”°ë¼ í•™ìƒì •ì›, ëŠ¥ë ¥ì¹˜ ì˜í–¥<br>ê±´ë¬¼ ê±´ì„¤ë¹„ìš©, ê´€ë¦¬ë¹„ìš© ì†Œëª¨<br><br>â‘¡ê±´ë¬¼ ê±´ì„¤ ë²„íŠ¼<br>í´ë¦­ì‹œ ê±´ë¬¼ê±´ì„¤ í™”ë©´ìœ¼ë¡œ ì´ë™</p></html>"));
+		this.slides.add(new Slide("res/tutorial/t4.jpg", "<html><p>â‘ ê±´ë¬¼ ê±´ì„¤ ë²„íŠ¼<br>ê±´ë¬¼ ê°€ê²©ê³¼ ëŠ˜ì–´ë‚˜ëŠ” í•™ìƒì •ì› í‘œì‹œ<br>í´ë¦­ ì‹œ ê²Œì„ì— ê±´ë¬¼ ê±´ì„¤í•˜ê³  ê²Œì„í™”ë©´ìœ¼ë¡œ ì´ë™<br><br>â‘¡ê±´ë¬¼ ê±´ì„¤ í™”ë©´ ë‚˜ê°€ê¸° ë²„íŠ¼<br>í´ë¦­ì‹œ ê±´ë¬¼ ê±´ì„¤ í•˜ì§€ ì•Šê³  ê²Œì„í™”ë©´ìœ¼ë¡œ ì´ë™</p></html>"));
+		this.slides.add(new Slide("res/tutorial/t5.jpg", "<html><p>â‘ ëœë¤ ì´ë²¤íŠ¸<br>ì—¬ëŸ¬ê°€ì§€ ì´ë²¤íŠ¸ê°€ ìˆìŒ<br>ê° ì´ë²¤íŠ¸ë§ˆë‹¤ ê²Œì„ì— ì˜í–¥ì„ ì£¼ëŠ”ê²Œ ë‹¤ë¦„<br><br>â‘¡ì´ë²¤íŠ¸ ì„ íƒ ë²„íŠ¼<br>í”Œë ˆì´ì–´ì˜ ì„ íƒì— ë”°ë¼ ëŠ¥ë ¥ì¹˜, ê²Œì„ ê²°ê³¼ì— ì˜í–¥ì„ ì¤Œ</p></html>"));
 		pageNum = 0;
 		flag_anime = false;
 		
-		// ½½¶óÀÌµå ¹öÆ° ¸®½º³Ê
+		// ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ ë¦¬ìŠ¤ë„ˆ
 		slideBtnL = new SlideButtonListener();				
 		
-		/* ÀÌÀü ½½¶óÀÌµå·Î ¹öÆ° */
+		/* ì´ì „ ìŠ¬ë¼ì´ë“œë¡œ ë²„íŠ¼ */
 		btnPrevSlide = new ImageButton();
 		btnPrevSlide.setNormalImage("res/prev_btn_normal.png");
 		btnPrevSlide.setPressedImage("res/prev_btn_pressed.png");
@@ -65,7 +66,7 @@ public class TutorialScene extends JPanel {
 		btnPrevSlide.addActionListener(slideBtnL);
 		this.add(btnPrevSlide);		
 		
-		/* ´ÙÀ½ ½½¶óÀÌµå·Î ¹öÆ° */
+		/* ë‹¤ìŒ ìŠ¬ë¼ì´ë“œë¡œ ë²„íŠ¼ */
 		btnNextSlide = new ImageButton();
 		btnNextSlide.setNormalImage("res/next_btn_normal.png");
 		btnNextSlide.setPressedImage("res/next_btn_pressed.png");
@@ -74,7 +75,7 @@ public class TutorialScene extends JPanel {
 		btnNextSlide.addActionListener(slideBtnL);
 		this.add(btnNextSlide);
 		
-		/* Æ©Åô¸®¾ó ½ºÅµ ¹öÆ° */
+		/* íŠœíˆë¦¬ì–¼ ìŠ¤í‚µ ë²„íŠ¼ */
 		btnSkip = new ImageButton();
 		btnSkip.setNormalImage("res/skip_btn_normal.png");
 		btnSkip.setPressedImage("res/skip_btn_pressed.png");
@@ -89,7 +90,7 @@ public class TutorialScene extends JPanel {
 		this.add(btnSkip);
 		
 		
-		/* ÀÌ¹ÌÁö ½½¶óÀÌµå */
+		/* ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë“œ */
 		slideImg = new JLabel();
 		slideImg.setBounds(90, 120, 350, 220);
 		slideImg.setOpaque(true);
@@ -97,7 +98,7 @@ public class TutorialScene extends JPanel {
 		slideImg.setBackground(new Color(0, 0, 0, 200));
 		this.add(slideImg);
 		
-		/* ÅØ½ºÆ® ½½¶óÀÌµå */
+		/* í…ìŠ¤íŠ¸ ìŠ¬ë¼ì´ë“œ */
 		slideDesc = new JLabel();
 		slideDesc.setFont(new Font("Dotum", Font.BOLD, 15));
 		slideDesc.setBounds(480, 140, 250, 160);
@@ -105,7 +106,7 @@ public class TutorialScene extends JPanel {
 		this.add(this.slideDesc);
 
 		/*
-		 *  Ä¿½ºÅÒ ÆùÆ® Âü°í ÁÖ¼Ò
+		 *  ì»¤ìŠ¤í…€ í°íŠ¸ ì°¸ê³  ì£¼ì†Œ
 			https://stackoverflow.com/questions/5652344/how-can-i-use-a-custom-font-in-java
 		*/
 		Font customFont, customFont2;
@@ -119,20 +120,20 @@ public class TutorialScene extends JPanel {
 		
 	
 
-		/* Tutorial ±Û¾¾ */
-		lblSceneTitle = new JLabel("Æ©Åä¸®¾ó");
+		/* Tutorial ê¸€ì”¨ */
+		lblSceneTitle = new JLabel("íŠœí† ë¦¬ì–¼");
 		lblSceneTitle.setFont(customFont);
 		lblSceneTitle.setBounds(330, 10, 200, 50);
 		this.add(lblSceneTitle);
 		
-		/* ÀüÃ¼ ½½¶óÀÌµå Ç¥½Ã ¶óº§ */
+		/* ì „ì²´ ìŠ¬ë¼ì´ë“œ í‘œì‹œ ë¼ë²¨ */
 		lblTotal = new JLabel();
 		lblTotal.setFont(customFont2);
 		lblTotal.setBounds(400, 380, 200, 50);
 		lblTotal.setText("/ " + this.slides.size());
 		this.add(lblTotal);
 		
-		/* ÇöÀç ÆäÀÌÁö Ç¥½Ã ¶óº§ */
+		/* í˜„ì¬ í˜ì´ì§€ í‘œì‹œ ë¼ë²¨ */
 		lblCurrent = new JLabel();
 		lblCurrent.setFont(customFont2);
 		lblCurrent.setBounds(380, 380, 200, 50);
@@ -188,14 +189,14 @@ public class TutorialScene extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == btnPrevSlide && !flag_anime) {
 				pageNum--;
-				flag_anime = true; // ÀÌÀü,´ÙÀ½ ½½¶óÀÌµå ¹öÆ°À» »ç¿ë ºÒ°¡´ÉÇÏ°Ô ¸¸µç´Ù.
+				flag_anime = true; // ì´ì „,ë‹¤ìŒ ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ì„ ì‚¬ìš© ë¶ˆê°€ëŠ¥í•˜ê²Œ ë§Œë“ ë‹¤.
 				sThd = new SlideThread();
-				sThd.start();
+				sThd.start(); // ì• ë‹ˆë©”ì´ì…˜ ì“°ë ˆë“œ ì‹œì‘
 			} else if(e.getSource() == btnNextSlide && !flag_anime) {
 				pageNum++;
-				flag_anime = true; // ÀÌÀü,´ÙÀ½ ½½¶óÀÌµå ¹öÆ°À» »ç¿ë ºÒ°¡´ÉÇÏ°Ô ¸¸µç´Ù.
+				flag_anime = true; // ì´ì „,ë‹¤ìŒ ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ì„ ì‚¬ìš© ë¶ˆê°€ëŠ¥í•˜ê²Œ ë§Œë“ ë‹¤.
 				sThd = new SlideThread();
-				sThd.start();
+				sThd.start(); // ì• ë‹ˆë©”ì´ì…˜ ì“°ë ˆë“œ ì‹œì‘
 			}
 		} 
 	}
@@ -203,6 +204,7 @@ public class TutorialScene extends JPanel {
 	public void refreshSlide() {
 		Slide s = this.slides.get(pageNum);
 
+		// ìŠ¬ë¼ì´ë“œ ì´ë¯¸ì§€ ë¦¬ì‚¬ì´ì§•
 		try {
 			BufferedImage bImg = null;
 			bImg = ImageIO.read(new File(s.getImagePath()));
@@ -213,7 +215,7 @@ public class TutorialScene extends JPanel {
 		}
 		
 		slideDesc.setText(s.getDesc());
-		lblCurrent.setText(String.valueOf(pageNum + 1)); // ÇöÀç ÆäÀÌÁö °»½Å
+		lblCurrent.setText(String.valueOf(pageNum + 1)); // í˜„ì¬ í˜ì´ì§€ ê°±ì‹ 
 		
 		btnPrevSlide.setVisible(true);
 		btnNextSlide.setVisible(true);
@@ -225,6 +227,7 @@ public class TutorialScene extends JPanel {
 		}
 	}
 	
+	// íŠœíˆë¦¬ì–¼ ì• ë‹ˆë©”ì´ì…˜ ì“°ë ˆë“œ
 	private class SlideThread extends Thread {
 		
 		@Override
@@ -235,11 +238,13 @@ public class TutorialScene extends JPanel {
 			
 			boolean is_change = false;
 			for(double i = 0; i < Math.PI; i += 0.01) {
+				
+				// ë§Œì•½ ëê¹Œì§€ ì´ë™ëœ ê²½ìš° ë‚´ìš© ë°”ê¿”ì¹˜ê¸°
 				if(!is_change && i > Math.PI / 2) {
 					refreshSlide();
 					is_change = true;
 				}
-				int dist = (int)(Math.sin(i) * 500);
+				int dist = (int)(Math.sin(i) * 500); // iteration ë³„ë¡œ ìœ„ì¹˜ êµ¬í•˜ê¸°
 
 				slideImg.setLocation(init_img - dist, slideImg.getY());
 				slideDesc.setLocation(init_desc + dist, slideDesc.getY());
@@ -249,10 +254,12 @@ public class TutorialScene extends JPanel {
 					e.printStackTrace();
 				}
 			}
+			
+			// ìœ„ì¹˜ ê°±ì‹ 
 			slideImg.setLocation(init_img, slideImg.getY());
 			slideDesc.setLocation(init_desc, slideDesc.getY());
 			
-			flag_anime = false; // ÀÌÀü,´ÙÀ½ ½½¶óÀÌµå ¹öÆ°À» ´Ù½Ã »ç¿ë °¡´ÉÇÏ°Ô ¸¸µç´Ù.
+			flag_anime = false; // ì´ì „,ë‹¤ìŒ ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ì„ ë‹¤ì‹œ ì‚¬ìš© ê°€ëŠ¥í•˜ê²Œ ë§Œë“ ë‹¤.
 		}
 	}
 	
