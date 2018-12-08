@@ -1,2 +1,2 @@
-# SchoolGo-Game-
+# SchoolGo-Game
 School Team Project Assignment
