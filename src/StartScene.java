@@ -17,9 +17,9 @@ public class StartScene extends JPanel {
 	private JLabel lblSchool;
 	private JLabel lblUniversity;
 	
-	private JTextField inputName; //»ç¿ëÀÚ ÀÌ¸§ ÀÔ·Â
-	private JTextField inputSchool; //»ç¿ëÀÚ ÇĞ±³ ÀÔ·Â
-	private ImageButton btnLogin; //·Î±×ÀÎ ¹öÆ°
+	private JTextField inputName; //ì‚¬ìš©ì ì´ë¦„ ì…ë ¥
+	private JTextField inputSchool; //ì‚¬ìš©ì í•™êµ ì…ë ¥
+	private ImageButton btnLogin; //ë¡œê·¸ì¸ ë²„íŠ¼
 	
 	@SuppressWarnings("unused")
 	private Font font, font2;
@@ -57,12 +57,12 @@ public class StartScene extends JPanel {
 		loginPanel.setOpaque(false);
 		add(loginPanel);
 		
-		lblName = new JLabel("ÀÌ¸§");
+		lblName = new JLabel("ì´ë¦„");
 		lblName.setFont(font2);
 		lblName.setBounds(10, 0, 50, 50);
 		loginPanel.add(lblName);
 		
-		lblSchool = new JLabel("ÇĞ±³");
+		lblSchool = new JLabel("í•™êµ");
 		lblSchool.setFont(font2);
 		lblSchool.setBounds(10, 50, 50, 50);
 		loginPanel.add(lblSchool);
@@ -79,7 +79,7 @@ public class StartScene extends JPanel {
 		inputSchool.addActionListener(btnL);
 		loginPanel.add(inputSchool);
 		
-		lblUniversity = new JLabel("´ëÇĞ±³");
+		lblUniversity = new JLabel("ëŒ€í•™êµ");
 		lblUniversity.setFont(font2);
 		lblUniversity.setBounds(225, 60, 100, 30);
 		loginPanel.add(lblUniversity);
@@ -97,7 +97,7 @@ public class StartScene extends JPanel {
 	{
 		super.paintComponent(page);
 		page.drawImage(BackImage.getImage(), 0, 0, this);
-	} //paintComponent - ¹è°æ ÀÌ¹ÌÁö ±×¸®±â
+	} //paintComponent - ë°°ê²½ ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
 	
 	private class LoginListener implements ActionListener
 	{
@@ -108,39 +108,39 @@ public class StartScene extends JPanel {
 			Object obj = event.getSource();
 			int maxLimit = 6;
 			int minLimit = 1;
-			
+			// 1 ê¸€ì ì´ìƒ 6ê¸€ì ì´í•˜ ì œí•œ
 			if(obj == btnLogin || obj == inputName || obj == inputSchool)
 			{
 				if(inputName.getText().length() < minLimit || inputSchool.getText().length() < minLimit)
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("¾Æ¹«°Íµµ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù"));
-				} //±ÛÀÚ ¼ö ÃÖ¼Ò Á¦ÇÑ
+					SceneManager.getInstance().addAlert(new AlertDialog("ì•„ë¬´ê²ƒë„ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤"));
+				} //ê¸€ì ìˆ˜ ìµœì†Œ ì œí•œ
 				else if(inputName.getText().length() > maxLimit )
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("ÀÌ¸§ÀÌ 6ÀÚ¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù."));
-				} //±ÛÀÚ ¼ö ÃÖ´ë Á¦ÇÑ
+					SceneManager.getInstance().addAlert(new AlertDialog("ì´ë¦„ì´ 6ìë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤."));
+				} //ê¸€ì ìˆ˜ ìµœëŒ€ ì œí•œ
 				else if(inputSchool.getText().length() > 3)
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("ÇĞ±³¸íÀÌ 3ÀÚ¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù."));
-				} //ÇĞ±³ ±ÛÀÚ ¼ö Á¦ÇÑ
-				else if(!inputName.getText().matches("[0-9|a-z|A-Z|¤¡-¤¾|¤¿-¤Ó|°¡-ÆR]*"))
+					SceneManager.getInstance().addAlert(new AlertDialog("í•™êµëª…ì´ 3ìë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤."));
+				} //í•™êµ ê¸€ì ìˆ˜ ì œí•œ
+				else if(!inputName.getText().matches("[0-9|a-z|A-Z|ã„±-ã…|ã…-ã…£|ê°€-R]*"))
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("Æ¯¼ö ¹®ÀÚ´Â ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù."));
-				} //inputName ¿¡ Æ¯¼ö¹®ÀÚ ÀÔ·Â ½Ã ¿¹¿ÜÃ³¸®
+					SceneManager.getInstance().addAlert(new AlertDialog("íŠ¹ìˆ˜ ë¬¸ìëŠ” ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."));
+				} //inputName ì— íŠ¹ìˆ˜ë¬¸ì ì…ë ¥ ì‹œ ì˜ˆì™¸ì²˜ë¦¬
 				
-				else if(!inputSchool.getText().matches("[0-9|a-z|A-Z|¤¡-¤¾|¤¿-¤Ó|°¡-ÆR]*"))
+				else if(!inputSchool.getText().matches("[0-9|a-z|A-Z|ã„±-ã…|ã…-ã…£|ê°€-R]*"))
 				{
-					SceneManager.getInstance().addAlert(new AlertDialog("Æ¯¼ö ¹®ÀÚ´Â ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù."));
-				} //inputSchool ¿¡ Æ¯¼ö¹®ÀÚ ÀÔ·Â ½Ã ¿¹¿ÜÃ³¸®
+					SceneManager.getInstance().addAlert(new AlertDialog("íŠ¹ìˆ˜ ë¬¸ìëŠ” ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."));
+				} //inputSchool ì— íŠ¹ìˆ˜ë¬¸ì ì…ë ¥ ì‹œ ì˜ˆì™¸ì²˜ë¦¬
 				else
 				{
 					SceneManager.getInstance().setUserName(inputName.getText());
 					SceneManager.getInstance().setUserSchool(inputSchool.getText());
 					
-					SceneManager.getInstance().changeState(SceneManager.SceneType.TUTORIAL); //Æ©Åä¸®¾ó È­¸éÀ¸·Î ³Ñ¾î°¨
+					SceneManager.getInstance().changeState(SceneManager.SceneType.TUTORIAL); //íŠœí† ë¦¬ì–¼ í™”ë©´ìœ¼ë¡œ ë„˜ì–´ê°
 					
-				} //Á¤»ó ·Î±×ÀÎ
-			} //·Î±×ÀÎ ¹öÆ° or enter
+				} //ì •ìƒ ë¡œê·¸ì¸
+			} //ë¡œê·¸ì¸ ë²„íŠ¼ or enter
 		} //actionPerformed()
 	} //LoginListener class
 } //StartScene class
