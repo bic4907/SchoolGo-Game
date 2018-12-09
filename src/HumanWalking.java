@@ -16,28 +16,28 @@ import javax.swing.JPanel;
 public class HumanWalking extends JLabel{
 
 	private BufferedImage img; // chipsetimg
-	public int x, y, nJudge; // point 
-	private int moveStatus;
-	private int count;
+	public int x, y, nJudge; // point, ë°©í–¥ì „í™˜ í¬ì¸íŠ¸
+	private int moveStatus; // ì´ë¯¸ì§€ ë¶ˆëŸ¬ì˜¤ëŠ” ê¸°ì¤€
+	private int count; // ì‚¬ì§„ë³€í™˜ ì‹œê°„ ì¸¡ì •ìš©
 	private int rint; // subMoveStatus
-	private int humanStatus, humanTimer; //
-	private ImageIcon lblIcon[][] = new ImageIcon[3][4]; // ÀÓ½ÃÀúÀå¿ë ¹è¿­
+	private int humanStatus, humanTimer; // ì‚¬ëŒ event ìƒíƒœ í‘œì‹œ, êº¼ì§€ëŠ” íƒ€ì´ë¨¸
+	private ImageIcon lblIcon[][] = new ImageIcon[3][4]; // ì„ì‹œì €ì¥ìš© ë°°ì—´
 	private Thread th;
 	
 
-	public JPanel rEvent;
-	private ImageButton btnEvent, btnEvent2;
+	public JPanel rEvent; // ì´ë²¤íŠ¸ í‘œì‹œìš© íŒ¨ë„
+	private ImageButton btnEvent, btnEvent2; // ì±…, í•˜íŠ¸ ì´ë²¤íŠ¸
 	
-	private HashMap<String, Image> images;
+	private HashMap<String, Image> images; // ì‚¬ì§„ ì €ì¥, í˜¸ì¶œìš©
 	
-	public boolean attached = false;
+	public boolean attached = false; // ì´ë¯¸ ìƒì„±ë˜ì–´ìˆìœ¼ë©´ ë‹¤ì‹œ ìƒì„±í•˜ì§€ ì•Šê¸°ìœ„í•œ flag
 	
 	public HumanWalking(int nType)
 	{
 		if (nType>9)
-			nType -= 10; // 10ÀÌ»ó ¼ö°¡ µé¾î¿À¸é -10 (Áßº¹Á¤º¸ »ı¼º¹æÁö) 
+			nType -= 10; // 10ì´ìƒ ìˆ˜ê°€ ë“¤ì–´ì˜¤ë©´ -10 (ì¤‘ë³µì •ë³´ ìƒì„±ë°©ì§€) 
 		this.count = 0;
-		//ÇĞ±³ ÀÔ±¸¿¡ »ç¶÷ Ãß°¡
+		//í•™êµ ì…êµ¬ì— ì‚¬ëŒ ì¶”ê°€, ì‹œì‘ì¢Œí‘œ
 		this.x = 330;
 		this.y = 350;
 		this.moveStatus = 2;
@@ -45,22 +45,22 @@ public class HumanWalking extends JLabel{
 		this.humanTimer = 0;
 		this.rint = 0;
 		
-		this.images = new HashMap<String, Image>();
+		this.images = new HashMap<String, Image>(); 
 		
-		rEvent = new JPanel(); // ¹öÆ°³Ö´Â ÆĞ³Î
+		rEvent = new JPanel(); // ë²„íŠ¼ë„£ëŠ” íŒ¨ë„
 		rEvent.setBounds(x,y-12,24,30);
 		rEvent.setOpaque(false);
 		rEvent.setLayout(null);
 		rEvent.setVisible(true);
 		
-		btnEvent = new ImageButton(); // ·£´ı1À¸·Î ¸¸µé¾îÁö´Â ¹öÆ°
+		btnEvent = new ImageButton(); // ëœë¤1ìœ¼ë¡œ ë§Œë“¤ì–´ì§€ëŠ” ë²„íŠ¼
 		btnEvent.setNormalImage("res/lblicon/closedBook1.png");
 		btnEvent.setPressedImage("res/lblicon/openedBook1.png");
 		btnEvent.setVisible(false);
 		btnEvent.setBounds(0,0,24,30);
 		
 		
-		btnEvent2 = new ImageButton(); // ·£´ı2À¸·Î ¸¸µé¾îÁö´Â ¹öÆ°
+		btnEvent2 = new ImageButton(); // ëœë¤2ìœ¼ë¡œ ë§Œë“¤ì–´ì§€ëŠ” ë²„íŠ¼
 		btnEvent2.setNormalImage("res/lblicon/heart.png");
 		btnEvent2.setPressedImage("res/lblicon/heartClicked.png");
 		btnEvent2.setVisible(false);
@@ -69,29 +69,29 @@ public class HumanWalking extends JLabel{
 		btnEvent.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				SceneManager.getInstance().getGameManager().applyEffect(new Effect(1, 1, 1, 1, 0, 0, 0, 0, "", ""));
-		    	System.out.println("Áö½ÄÁõ°¡");
+		    	System.out.println("ì§€ì‹ì¦ê°€");
 				humanStatus = 0;
 		    	humanTimer = 0;
 		    	btnEvent.setVisible(false);
-			} // ¹öÆ°Å¬¸¯½Ã ¹öÆ° ¾ø¾îÁö°Ô
-		}); // btnEvent¿¡ Listener ´Ş±â
-		rEvent.add(btnEvent);
+			} // ë²„íŠ¼í´ë¦­ì‹œ ë²„íŠ¼ ì—†ì–´ì§€ê²Œ
+		}); // btnEventì— Listener ë‹¬ê¸°
+		rEvent.add(btnEvent); // íŒ¨ë„ì— ë²„íŠ¼ ì¶”ê°€
 		
 		btnEvent2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				SceneManager.getInstance().getGameManager().applyEffect(new Effect(0, 0, 0, 0, -1, -1, -1, -1, "", ""));
-				System.out.println("Çàº¹µµÁõ°¡");
+				System.out.println("í–‰ë³µë„ì¦ê°€");
 				humanStatus = 0;
 		    	humanTimer = 0;
 		    	btnEvent2.setVisible(false);
-			} // ¹öÆ°Å¬¸¯½Ã ¹öÆ° ¾ø¾îÁö°Ô
-		}); // btnEvent2¿¡ Listener ´Ş±â
-		rEvent.add(btnEvent2);
+			} // ë²„íŠ¼í´ë¦­ì‹œ ë²„íŠ¼ ì—†ì–´ì§€ê²Œ
+		}); // btnEvent2ì— Listener ë‹¬ê¸°
+		rEvent.add(btnEvent2); // íŒ¨ë„ì— ì¶”ê°€
 		
 		
 		
 		try {
-			img = ImageIO.read(new File("res/character/chipset00"+nType+".png"));
+			img = ImageIO.read(new File("res/character/chipset00"+nType+".png")); // ìë¥´ê¸°ì „ ì´ë¯¸ì§€ ë¶ˆëŸ¬ì˜¤ê¸°
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -100,23 +100,21 @@ public class HumanWalking extends JLabel{
 		{
 			for(int j = 0;j<4;j++)
 			{
-				try { // ÀÌ¹ÌÁö 12µîºĞ
+				try { // ì´ë¯¸ì§€ 12ë“±ë¶„ 3x4ë°°ì—´ì— ì €ì¥
 					if(!images.containsKey("temp"+nType+"_"+i+"_"+j+".png"))
 						images.put("temp"+nType+"_"+i+"_"+j+".png", img.getSubimage((i*24), (j*32), 24, 32));
+					// hashmapì— ì €ì¥ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´ ì¶”ê°€í•˜ê¸°
 					
-					
-					
-					//ImageIO.write(img.getSubimage((i*24), (j*32), 24, 32), "png", new File("temp"+nType+"_"+i+"_"+j+".png"));
-					Image tempimg1 = images.get("temp"+nType+"_"+i+"_"+j+".png");
-					lblIcon[i][j] = new ImageIcon(tempimg1); 
+					Image tempimg1 = images.get("temp"+nType+"_"+i+"_"+j+".png"); // image ì„ì‹œ ì €ì¥
+					lblIcon[i][j] = new ImageIcon(tempimg1);  // ImageIconìœ¼ë¡œ ë°”ê¿”ì„œ ì €ì¥
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} // try catch
 			} // for
 		} // for
-		setIcon(lblIcon[0][0]);
-		start();
+		setIcon(lblIcon[0][0]); // ì´ˆê¸°ì„¤ì •
+		start(); // ì‹œì‘
 	} // HumanWalking()
 
 	public void start()
@@ -134,13 +132,13 @@ public class HumanWalking extends JLabel{
 		{
 			try 
 			{
-				JudgePoint(); // ÁÂÇ¥ÀÌµ¿ÈÄ
-				MoveImage();
+				JudgePoint(); // ì¢Œí‘œì´ë™í›„
+				MoveImage(); // ì‚¬ì§„ì„ ë°”ê¿€ì§€ íŒë‹¨
 				setBounds(x,y,24,32);
-				if(humanStatus == 1) // Ã¥»ı¼ºµÇ¾îÀÖÀ»¶§
+				if(humanStatus == 1) // ì±…ìƒì„±ë˜ì–´ìˆì„ë•Œ
 				{
 					humanTimer++;
-					if(humanTimer == 200) // Ã¥ÀÌ »ç¶óÁö´Â ½Ã°£
+					if(humanTimer == 200) // ì±…ì´ ì‚¬ë¼ì§€ëŠ” ì‹œê°„
 					{
 						humanStatus = 0;
 						humanTimer = 0;
@@ -148,10 +146,10 @@ public class HumanWalking extends JLabel{
 						btnEvent.setVisible(false);
 					}
 				}
-				else if(humanStatus == 2)
+				else if(humanStatus == 2) // í•˜íŠ¸ê°€ ìƒì„±ë˜ì–´ ìˆì„ë•Œ
 				{
 					humanTimer++;
-					if(humanTimer == 200) // Ã¥ÀÌ »ç¶óÁö´Â ½Ã°£
+					if(humanTimer == 200) // í•˜íŠ¸ê°€ ì‚¬ë¼ì§€ëŠ” ì‹œê°„
 					{
 						humanStatus = 0;
 						humanTimer = 0;
@@ -159,15 +157,15 @@ public class HumanWalking extends JLabel{
 						btnEvent2.setVisible(false);
 					}
 				}
-				else if(humanStatus == 0) // ÀÌº¥Æ®°¡ ¾øÀ»¶§
+				else if(humanStatus == 0) // ì´ë²¤íŠ¸ê°€ ì—†ì„ë•Œ
 				{
-					if((int)(Math.random()*2000) == 1) // ·£´ıÀ¸·Î Ã¥»ı¼º
+					if((int)(Math.random()*2000) == 1) // ëœë¤ìœ¼ë¡œ ì±…ìƒì„±
 					{
 						humanStatus = 1;
 						rEvent.setVisible(true);
 						btnEvent.setVisible(true);
 					}
-					if((int)(Math.random()*2000) == 2) // ÇÏÆ®
+					if((int)(Math.random()*2000) == 2) // í•˜íŠ¸
 					{
 						humanStatus = 2;
 						rEvent.setVisible(true);
@@ -175,14 +173,14 @@ public class HumanWalking extends JLabel{
 					}
 				}
 				Thread.sleep(20);
-				count++; // ½Ã°£
+				count++; // ì‹œê°„
 			}catch(Exception e) {}
 		} // while
 	} // run
 	} // MyThread
 	
 	public void MoveImage()
-	{	
+	{	// countì— ë”°ë¼ ì‚¬ì§„ ë°”ê¾¸ê¸°
 			if ( count / 10 % 4 == 0 )
 				{ 
 					setIcon(lblIcon[0][moveStatus]);
@@ -201,51 +199,8 @@ public class HumanWalking extends JLabel{
 				}
 	} // MoveImage
 	
-	/*
-	public void Process()
-	{
-		
-		if(count%100 == 0)
-		{
-			rint = (int)(Math.random()*4);
-		}// °¥¹æÇâ Á¤ÇÏ±â (count 100¸¶´Ù)
-		
-		if(rint == 0)
-		{
-			y-=1;
-			if(y<100)
-				rint = 1; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
-			moveStatus = 0;
-		}
-		
-		if(rint == 1)
-		{
-			y+=1;
-			if(y>350)
-				rint = 0; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
-			moveStatus = 2;
-		}
-			
-		if(rint == 2)
-		{
-			x-=1;
-			if(x<200)
-				rint = 3; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
-			moveStatus = 3;
-		}
-			
-		if(rint == 3)
-		{
-			x+=1;
-			if(x>600)
-				rint = 2; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
-			moveStatus = 1;
-		}
-	} // process
-	*/
-	
 	public void JudgePoint()
-	{
+	{ // ê¸¸ë§Œë“¤ê¸°, ê°ˆë¦¼ê¸¸ë§ˆë‹¤ ëœë¤ìœ¼ë¡œ ë°©í–¥ ì„¤ì •
 		if(x == 330&& y == 315)
 		{
 			nJudge = (int)(Math.random()*3);
@@ -382,58 +337,41 @@ public class HumanWalking extends JLabel{
 		
 		
 		MacroProcess();
-	} // JudgePoint °¢ ÁöÁ¡¸¶´Ù ·£´ı¹æÇâ¼³Á¤
+	} // JudgePoint ê° ì§€ì ë§ˆë‹¤ ëœë¤ë°©í–¥ì„¤ì •
 	
 	public void MacroProcess()
 	{
-		
-		/*
-		if(count%100 == 0)
-		{
-			rint = (int)(Math.random()*4);
-		}// °¥¹æÇâ Á¤ÇÏ±â (count 100¸¶´Ù)
-		*/
-		
-		if(rint == 0)
+		if(rint == 0) // ìœ„ë¡œ 
 		{
 			y-=1;
-		//	if(y<100)
-		//		rint = 1; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
 			moveStatus = 0;
 		}
 		
-		if(rint == 1)
+		if(rint == 1) // ì•„ë˜ë¡œ
 		{
 			y+=1;
-		//	if(y>350)
-		//		rint = 0; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
 			moveStatus = 2;
 		}
 			
-		if(rint == 2)
+		if(rint == 2) // ì™¼ìª½ìœ¼ë¡œ
 		{
 			x-=1;
-		//	if(x<200)
-		//		rint = 3; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
 			moveStatus = 3;
 		}
 			
-		if(rint == 3)
+		if(rint == 3) // ì˜¤ë¥¸ìª½ìœ¼ë¡œ
 		{
 			x+=1;
-		//	if(x>600)
-		//		rint = 2; // ¹ÛÀ¸·Î ³ª°¡¸é Àç¼³Á¤
 			moveStatus = 1;
 		}
-		rEvent.setLocation(x,y-12);
-		//rEvent2.setLocation(x, y-12);
+		rEvent.setLocation(x,y-12); // ìºë¦­í„° ì´ë™í•œë§Œí¼ ì´ë²¤íŠ¸íŒ¨ë„ë„ ì´ë™
 	}
 	
 
 	public JPanel getEventPanel()
 	{
 		return rEvent;
-	} // ÆĞ³Î Á¤º¸ ¹Ş±â
+	} // íŒ¨ë„ ì •ë³´ ë°›ê¸°
 	
 	
 	
